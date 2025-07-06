@@ -4,13 +4,10 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+figma reference:
+https://www.figma.com/design/7UcT1z2GBcXN97ebcnMBEU/Movie---Series-Website--Community-?node-id=0-1&p=f&t=a2rDoR6JQpCw5NHr-0
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+goals:
+- Make focus on UI UX experience, just layout and styles
+- Apply in Web, Desktop, mobile and mobile app-web plataforms
+- share components in mobile and web softwares
