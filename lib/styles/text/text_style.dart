@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart'; // Essential import for Flutter widgets and classes
 import '../color/app_color.dart' show AppColors;
 
 class AppTextStyles {
@@ -8,112 +7,149 @@ class AppTextStyles {
 
   ColorScheme get _colorScheme => Theme.of(_context).colorScheme;
 
-  static final TextTheme _latoTextTheme = GoogleFonts.latoTextTheme();
+  TextTheme get _appTextTheme => Theme.of(_context).textTheme;
 
-  TextStyle get primary =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.primary);
-  TextStyle primaryS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: _colorScheme.primary,
-  );
+  // Primary color styles
+  TextStyle get primary => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.primary,
+      );
+  TextStyle primaryS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.primary,
+      );
 
-  TextStyle get onPrimary =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.onPrimary);
-  TextStyle onPrimaryS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: _colorScheme.onPrimary,
-  );
+  // OnPrimary color styles
+  TextStyle get onPrimary => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.onPrimary,
+      );
+  TextStyle onPrimaryS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.onPrimary,
+      );
 
-  TextStyle get onPrimaryContainer => _latoTextTheme.bodyMedium!.copyWith(
-    color: _colorScheme.onPrimaryContainer,
-  );
-  TextStyle onPrimaryContainerS(double fontSize) => _latoTextTheme.bodyMedium!
-      .copyWith(fontSize: fontSize, color: _colorScheme.onPrimaryContainer);
+  // OnPrimaryContainer color styles
+  TextStyle get onPrimaryContainer => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.onPrimaryContainer,
+      );
+  TextStyle onPrimaryContainerS(double fontSize) =>
+      _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.onPrimaryContainer,
+      );
 
-  TextStyle get secondary =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.secondary);
-  TextStyle secondaryS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: _colorScheme.secondary,
-  );
+  // Secondary color styles
+  TextStyle get secondary => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.secondary,
+      );
+  TextStyle secondaryS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.secondary,
+      );
 
-  TextStyle get onSecondary =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.onSecondary);
-  TextStyle onSecondaryS(double fontSize) => _latoTextTheme.bodyMedium!
-      .copyWith(fontSize: fontSize, color: _colorScheme.onSecondary);
+  // OnSecondary color styles
+  TextStyle get onSecondary => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.onSecondary,
+      );
+  TextStyle onSecondaryS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.onSecondary,
+      );
 
-  TextStyle get onBackground =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.onSurface);
-  TextStyle onBackgroundS(double fontSize) => _latoTextTheme.bodyMedium!
-      .copyWith(fontSize: fontSize, color: _colorScheme.onSurface);
+  // OnBackground color styles (using onSurface as common for background-related text)
+  TextStyle get onBackground => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.onSurface,
+      );
+  TextStyle onBackgroundS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.onSurface,
+      );
 
-  TextStyle get onSurface =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.onSurface);
-  TextStyle onSurfaceS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: _colorScheme.onSurface,
-  );
+  // OnSurface color styles
+  TextStyle get onSurface => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.onSurface,
+      );
+  TextStyle onSurfaceS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.onSurface,
+      );
 
-  TextStyle get onSurfaceVariant =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.onSurfaceVariant);
-  TextStyle onSurfaceVariantS(double fontSize) => _latoTextTheme.bodyMedium!
-      .copyWith(fontSize: fontSize, color: _colorScheme.onSurfaceVariant);
+  // OnSurfaceVariant color styles
+  TextStyle get onSurfaceVariant => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.onSurfaceVariant,
+      );
+  TextStyle onSurfaceVariantS(double fontSize) =>
+      _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.onSurfaceVariant,
+      );
 
-  TextStyle get error =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.error);
-  TextStyle errorS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: _colorScheme.error,
-  );
+  // Error color styles
+  TextStyle get error => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.error,
+      );
+  TextStyle errorS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.error,
+      );
 
-  TextStyle get onError =>
-      _latoTextTheme.bodyMedium!.copyWith(color: _colorScheme.onError);
-  TextStyle onErrorS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: _colorScheme.onError,
-  );
+  // OnError color styles
+  TextStyle get onError => _appTextTheme.bodyMedium!.copyWith(
+        color: _colorScheme.onError,
+      );
+  TextStyle onErrorS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: _colorScheme.onError,
+      );
 
-  TextStyle get success =>
-      _latoTextTheme.bodyMedium!.copyWith(color: AppColors.springGreen);
-  TextStyle successS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: AppColors.springGreen,
-  );
+  // Custom colors from AppColors
+  TextStyle get success => _appTextTheme.bodyMedium!.copyWith(
+        color: AppColors.springGreen,
+      );
+  TextStyle successS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: AppColors.springGreen,
+      );
 
-  TextStyle get warning =>
-      _latoTextTheme.bodyMedium!.copyWith(color: AppColors.goldenFizz);
-  TextStyle warningS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: AppColors.goldenFizz,
-  );
+  TextStyle get warning => _appTextTheme.bodyMedium!.copyWith(
+        color: AppColors.goldenFizz,
+      );
+  TextStyle warningS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: AppColors.goldenFizz,
+      );
 
-  TextStyle get black =>
-      _latoTextTheme.bodyMedium!.copyWith(color: AppColors.black);
-  TextStyle blackS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: AppColors.black,
-  );
+  TextStyle get black => _appTextTheme.bodyMedium!.copyWith(
+        color: AppColors.black,
+      );
+  TextStyle blackS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: AppColors.black,
+      );
 
-  TextStyle get white =>
-      _latoTextTheme.bodyMedium!.copyWith(color: AppColors.white);
-  TextStyle whiteS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: AppColors.white,
-  );
+  TextStyle get white => _appTextTheme.bodyMedium!.copyWith(
+        color: AppColors.white,
+      );
+  TextStyle whiteS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: AppColors.white,
+      );
 
-  TextStyle get gray =>
-      _latoTextTheme.bodyMedium!.copyWith(color: AppColors.gray);
-  TextStyle grayS(double fontSize) => _latoTextTheme.bodyMedium!.copyWith(
-    fontSize: fontSize,
-    color: AppColors.gray,
-  );
+  TextStyle get gray => _appTextTheme.bodyMedium!.copyWith(
+        color: AppColors.gray,
+      );
+  TextStyle grayS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
+        fontSize: fontSize,
+        color: AppColors.gray,
+      );
 
-  // --- Common Decorations/Weights ---
-
-  TextStyle bold(TextStyle baseStyle) =>
-      baseStyle.copyWith(fontWeight: FontWeight.bold);
-  TextStyle lineThrough(TextStyle baseStyle) =>
-      baseStyle.copyWith(decoration: TextDecoration.lineThrough);
-  TextStyle underline(TextStyle baseStyle) =>
-      baseStyle.copyWith(decoration: TextDecoration.underline);
+  // Common Decorations/Weights (utility methods to apply common styles)
+  TextStyle bold(TextStyle baseStyle) => baseStyle.copyWith(
+        fontWeight: FontWeight.bold,
+      );
+  TextStyle lineThrough(TextStyle baseStyle) => baseStyle.copyWith(
+        decoration: TextDecoration.lineThrough,
+      );
+  TextStyle underline(TextStyle baseStyle) => baseStyle.copyWith(
+        decoration: TextDecoration.underline,
+      );
 }
