@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 import '../color/color_scheme.dart';
+import 'filled_btn_custom.dart';
 import 'outlined_btn_custom.dart';
 
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       brightness: Brightness.light,
-      fontFamily: 'lato',
+      fontFamily: 'Lato',
       colorScheme: colorSchemeLight,
       filledButtonTheme: btnFilledThemeLight,
+      outlinedButtonTheme: btnOutlinedThemeLight,
       //TODO appBarTheme: appBarThemeLight,
       // elevatedButtonTheme: ElevatedButtonThemeData(
       //   style: ElevatedButton.styleFrom(
