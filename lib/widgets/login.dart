@@ -106,9 +106,11 @@ class BtnsLogin extends StatelessWidget {
     super.key,
     required this.text,
     required this.onTap,
+    this.isSelected = true,
   });
   final String text;
   final VoidCallback onTap;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -129,29 +131,30 @@ class BtnsLogin extends StatelessWidget {
                     style: context.styles.whiteS(16),
                   ),
                   const SizedBox(height: 4),
-                  Stack(
-                    children: [
-                      ImageFiltered(
-                        imageFilter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-                        child: Container(
+                  if (isSelected)
+                    Stack(
+                      children: [
+                        ImageFiltered(
+                          imageFilter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                          child: Container(
+                            height: 2,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: context.colors.primary,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                          ),
+                        ),
+                        Container(
                           height: 2,
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: context.colors.primary.withValues(alpha: 0.03),
                             borderRadius: BorderRadius.circular(4),
                           ),
                         ),
-                      ),
-                      Container(
-                        height: 2,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: Colors.blue.withOpacity(0.03),
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
                 ],
               ),
             ),
@@ -176,7 +179,7 @@ class SignupForm extends StatelessWidget {
         TextField(),
         Text("Forgot Password"),
         SizedBox(),
-        FilledButton(onPressed: () {}, child: Text("LOGIN")),
+        FilledButton(onPressed: () {}, child: Text("CONFIRM")),
       ],
     );
   }

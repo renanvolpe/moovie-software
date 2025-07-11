@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
@@ -9,6 +8,10 @@ class TextComponentsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Text(
+          "Textss Section examples",
+          style: context.styles.blackS(40),
+        ),
         const Text(
           '--- Getters (Default Size) ---',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),

@@ -13,7 +13,10 @@ class ButtonsSectionWidget extends StatelessWidget {
     return Column(
       spacing: 10,
       children: [
-        Text("Filled Button default", style: context.styles.primaryS(22)),
+        Text(
+          "Filled Section examples",
+        style: context.styles.blackS(40),
+        ),
 
         BtnFilledWiddget(
           onPressed: () {},

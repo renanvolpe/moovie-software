@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 
 import 'styles/theme/theme.dart' show AppTheme;
-import 'widgets/login.dart';
+import 'widgets/layout_summary.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       scrollBehavior: AppCustomScrollBehavior(),
       title: 'Flutter Demo',
       theme: AppTheme.lightTheme,
-      home: SelectionArea(child: const Login()),
+      home: SelectionArea(child: const LayoutSummary()),
     );
   }
 }
