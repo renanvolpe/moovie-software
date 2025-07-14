@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
-
 import 'app_color.dart' show AppColors;
 
+/// Light theme color scheme
 final ColorScheme colorSchemeLight = const ColorScheme.light(
-  primary: AppColors.summerSky,
+  primary: AppColors.primary,
   onPrimary: AppColors.white,
-  primaryContainer: AppColors.summerSky,
+  primaryContainer: AppColors.primary,
   onPrimaryContainer: AppColors.white,
 
-  secondary: AppColors.deepCerise,
+  secondary: AppColors.secondary,
   onSecondary: AppColors.white,
-  secondaryContainer: AppColors.deepCerise,
+  secondaryContainer: AppColors.secondary,
   onSecondaryContainer: AppColors.white,
 
-  tertiary: AppColors.darkGreen,
+  tertiary: AppColors.backgroundDark,
   onTertiary: AppColors.white,
-  tertiaryContainer: AppColors.darkGreen,
+  tertiaryContainer: AppColors.backgroundDark,
   onTertiaryContainer: AppColors.white,
 
-  surface: AppColors.aliceBlueBackground,
+  surface: AppColors.backgroundLight,
   onSurface: AppColors.black,
-
-  surfaceContainerHighest: AppColors.aliceBlueBackground,
+  surfaceContainerHighest: AppColors.backgroundLight,
   onSurfaceVariant: AppColors.black,
 
-  error: AppColors.alizarinLight,
+  error: AppColors.alert,
   onError: AppColors.white,
-  errorContainer: AppColors.alizarinLight,
+  errorContainer: AppColors.alert,
   onErrorContainer: AppColors.white,
 
   outline: AppColors.gray,
@@ -34,35 +33,36 @@ final ColorScheme colorSchemeLight = const ColorScheme.light(
   shadow: AppColors.black,
   scrim: AppColors.black,
 
-  inversePrimary: AppColors.darkGreenBackground,
-  inverseSurface: AppColors.darkGreenBackground,
+  inversePrimary: AppColors.backgroundDark,
+  inverseSurface: AppColors.backgroundDark,
   onInverseSurface: AppColors.white,
 );
 
+/// Dark theme color scheme
 final ColorScheme colorSchemeDark = const ColorScheme.dark(
-  primary: AppColors.summerSky,
-  onPrimary: AppColors.aliceBlueMain,
-  primaryContainer: AppColors.summerSky,
-  onPrimaryContainer: AppColors.aliceBlueMain,
+  primary: AppColors.primary,
+  onPrimary: AppColors.surface,
+  primaryContainer: AppColors.primary,
+  onPrimaryContainer: AppColors.surface,
 
-  secondary: AppColors.deepCerise,
+  secondary: AppColors.secondary,
   onSecondary: AppColors.white,
-  secondaryContainer: AppColors.deepCerise,
+  secondaryContainer: AppColors.secondary,
   onSecondaryContainer: AppColors.white,
 
-  tertiary: AppColors.goldenFizz,
+  tertiary: AppColors.warning,
   onTertiary: AppColors.black,
-  tertiaryContainer: AppColors.goldenFizz,
+  tertiaryContainer: AppColors.warning,
   onTertiaryContainer: AppColors.black,
 
-  surface: AppColors.darkGreenBackground,
+  surface: AppColors.backgroundDark,
   onSurface: AppColors.white,
   surfaceContainerHighest: AppColors.black,
   onSurfaceVariant: AppColors.white,
 
-  error: AppColors.alizarinDark,
+  error: AppColors.error,
   onError: AppColors.white,
-  errorContainer: AppColors.alizarinDark,
+  errorContainer: AppColors.error,
   onErrorContainer: AppColors.white,
 
   outline: AppColors.gray,
@@ -70,7 +70,7 @@ final ColorScheme colorSchemeDark = const ColorScheme.dark(
   shadow: AppColors.black,
   scrim: AppColors.black,
 
-  inversePrimary: AppColors.summerSky,
-  inverseSurface: AppColors.aliceBlueBackground,
+  inversePrimary: AppColors.primary,
+  inverseSurface: AppColors.backgroundLight,
   onInverseSurface: AppColors.black,
 );

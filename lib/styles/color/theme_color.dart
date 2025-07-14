@@ -95,6 +95,6 @@ class ThemeColor {
   /// On Inverse Surface -> White (#FFFFFF) in light, Black (#000000) in dark
   Color get onInverseSurface => _colorScheme.onInverseSurface;
 
-  Color get successColor => AppColors.springGreen;
-  Color get warningColor => AppColors.goldenFizz;
+  Color get successColor => AppColors.success;
+  Color get warningColor => AppColors.warning;
 }
