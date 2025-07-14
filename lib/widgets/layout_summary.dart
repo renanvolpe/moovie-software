@@ -87,6 +87,7 @@ class TextFieldSectionsWidget extends StatefulWidget {
 }
 
 class _TextFieldSectionsWidgetState extends State<TextFieldSectionsWidget> {
+  final controllerTest = TextFieldController();
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width * 0.7;
@@ -101,25 +102,24 @@ class _TextFieldSectionsWidgetState extends State<TextFieldSectionsWidget> {
               "TextField Section examples",
               style: context.styles.blackS(40),
             ),
-            TextField(),
+            TextField(
+              decoration: InputDecoration(hintText: "With nothing"),
+            ),
             TextFormFieldWidget(
-              controller: TextFieldController(),
-              hintText: '',
+              controller: controllerTest,
+              hintText: 'With Validator Field',
               listValidator: (text) => [
-                Validator.required(text, fieldName: 'fieldName'),
+                Validator.required(text, fieldName: 'Validator Field'),
               ],
             ),
             TextFormFieldWidget(
               controller: TextFieldController(),
-              hintText: 'HintText',
+              hintText: 'With Left Icon',
               leftIcon: Icon(Icons.search),
-              listValidator: (text) => [
-                Validator.required(text, fieldName: 'HintText'),
-              ],
             ),
             TextFormFieldWidget(
               controller: TextFieldController(),
-              hintText: 'HintText',
+              hintText: 'With Right Icon and Validators',
               rightIcon: Icon(Icons.remove_red_eye_outlined),
               listValidator: (text) => [
                 Validator.required(text, fieldName: 'fieldName'),
@@ -127,9 +127,55 @@ class _TextFieldSectionsWidgetState extends State<TextFieldSectionsWidget> {
               ],
             ),
 
+            TextFormFieldWidget(
+              controller: TextFieldController(),
+              hintText: 'With Obscure text and Validator',
+              rightIcon: Icon(Icons.remove_red_eye_outlined),
+              obscureToggle: true,
+              listValidator: (text) => [
+                Validator.required(text, fieldName: 'Obscure'),
+                Validator.minLength(text, 5),
+              ],
+            ),
+
+            TextFormFieldWidget(
+              readOnly: true,
+              controller: TextFieldController(),
+              hintText: 'Read only',
+            ),
+
+            TextFormFieldWidget(
+              controller: TextFieldController(),
+              hintText: 'Inline text and Validator',
+              isInlineTextField: true,
+              listValidator: (text) => [
+                Validator.minLength(text, 5),
+              ],
+            ),
+
+            TextFormFieldWidget(
+              controller: TextFieldController(),
+              hintText: 'Inline text',
+              isInlineTextField: true,
+              listValidator: (text) => [
+                Validator.minLength(text, 5),
+              ],
+            ),
+
+            TextFormFieldWidget(
+              controller: TextFieldController(),
+              hintText: 'Inline text obscure',
+              isInlineTextField: true,
+              isObscured: true,
+              listValidator: (text) => [
+                Validator.minLength(text, 5),
+              ],
+            ),
+
             TextButton(
               onPressed: () {
                 formKey.currentState?.validate();
+                print("controllerTest.text:${controllerTest.text}");
               },
               child: Text("Validate"),
             ),

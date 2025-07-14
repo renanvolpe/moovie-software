@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextFieldController extends ChangeNotifier {
+  TextFieldController() {
+    focusNode.addListener(_handleFocusChange);
+  }
+
   final value = ValueNotifier<String>('');
+  final obscureText = ValueNotifier<bool>(false);
   final focusNode = FocusNode();
   final textController = TextEditingController();
   final fieldKey = GlobalKey<FormFieldState>();
@@ -15,24 +20,26 @@ class TextFieldController extends ChangeNotifier {
     notifyListeners();
   }
 
-  TextFieldController() {
-    focusNode.addListener(_handleFocusChange);
+  void toggleObscureText() {
+    obscureText.value = !obscureText.value;
+    notifyListeners();
   }
 
   void _handleFocusChange() {
     if (!focusNode.hasFocus) {
-      // When field loses focus, update value and run validation
       value.value = textController.text;
-      fieldKey.currentState?.validate(); // triggers validation
+      fieldKey.currentState?.validate();
       notifyListeners();
     }
   }
 
+  @override
   void dispose() {
     focusNode.removeListener(_handleFocusChange);
     focusNode.dispose();
     textController.dispose();
     value.dispose();
+    obscureText.dispose();
     super.dispose();
   }
 }
