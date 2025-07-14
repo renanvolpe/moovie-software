@@ -6,7 +6,7 @@ import '../color/app_color.dart';
 
 var btnFilledThemeLight = FilledButtonThemeData(
   style: FilledButton.styleFrom(
-    backgroundColor: AppColors.summerSky,
+    backgroundColor: AppColors.primary,
     foregroundColor: AppColors.white,
     textStyle: const TextStyle(
       fontSize: 12,
@@ -23,7 +23,7 @@ var btnFilledThemeLight = FilledButtonThemeData(
 
 var btnFilledThemedark = FilledButtonThemeData(
   style: FilledButton.styleFrom(
-    backgroundColor: AppColors.summerSky,
+    backgroundColor: AppColors.primary,
     foregroundColor: AppColors.white,
     textStyle: const TextStyle(
       fontSize: 12,

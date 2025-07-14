@@ -103,19 +103,19 @@ class AppTextStyles {
 
   // Custom colors from AppColors
   TextStyle get success => _appTextTheme.bodyMedium!.copyWith(
-        color: AppColors.springGreen,
+        color: AppColors.success,
       );
   TextStyle successS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
         fontSize: fontSize,
-        color: AppColors.springGreen,
+        color: AppColors.success,
       );
 
   TextStyle get warning => _appTextTheme.bodyMedium!.copyWith(
-        color: AppColors.goldenFizz,
+        color: AppColors.warning,
       );
   TextStyle warningS(double fontSize) => _appTextTheme.bodyMedium!.copyWith(
         fontSize: fontSize,
-        color: AppColors.goldenFizz,
+        color: AppColors.warning,
       );
 
   TextStyle get black => _appTextTheme.bodyMedium!.copyWith(

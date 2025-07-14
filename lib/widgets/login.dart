@@ -21,7 +21,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          color: AppColors.darkGreenBackground,
+          color: AppColors.backgroundDark,
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
               0.8,
               1.0,
             ],
-            colors: [Color(0xFF030A1B), Color(0xFF2A025E)],
+            colors: [AppColors.backgroundDark, AppColors.secondaryDarker],
           ),
         ),
         child: Center(

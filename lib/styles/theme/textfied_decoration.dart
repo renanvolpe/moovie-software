@@ -59,13 +59,13 @@ var inputDecorationThemeLight = InputDecorationTheme(
 
   // Error border
   errorBorder: OutlineInputBorder(
-    borderSide: const BorderSide(color: AppColors.alizarinDark, width: 1.8),
+    borderSide: const BorderSide(color: AppColors.error, width: 1.8),
     borderRadius: BorderRadius.circular(10),
   ),
 
   // Focused error border
   focusedErrorBorder: OutlineInputBorder(
-    borderSide: const BorderSide(color: AppColors.alizarinDarkLight, width: 2),
+    borderSide: const BorderSide(color: AppColors.errorLight, width: 2),
     borderRadius: BorderRadius.circular(10),
   ),
 
@@ -73,6 +73,6 @@ var inputDecorationThemeLight = InputDecorationTheme(
   labelStyle: const TextStyle(color: AppColors.black),
 
   // Error style
-  errorStyle: const TextStyle(color: AppColors.alizarinDarkLight, fontSize: 12),
+  errorStyle: const TextStyle(color: AppColors.errorDark, fontSize: 12),
   suffixIconColor: Colors.black87,
 );
