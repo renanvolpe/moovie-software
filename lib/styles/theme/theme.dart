@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../color/color_scheme.dart';
 import 'filled_btn_custom.dart';
 import 'outlined_btn_custom.dart';
+import 'switch_decoration.dart';
 import 'textfied_decoration.dart';
 
 class AppTheme {
@@ -14,6 +15,7 @@ class AppTheme {
       filledButtonTheme: btnFilledThemeLight,
       outlinedButtonTheme: btnOutlinedThemeLight,
       inputDecorationTheme: inputDecorationThemeLight,
+      switchTheme: lightSwitchTheme
       //TODO appBarTheme: appBarThemeLight,
       // elevatedButtonTheme: ElevatedButtonThemeData(
       //   style: ElevatedButton.styleFrom(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../../../styles/color/app_color.dart';
-import '../../../styles/theme/textfied_inline_decoration.dart';
+import '../../styles/color/app_color.dart';
+import '../../styles/theme/textfied_inline_decoration.dart';
 import 'text_field_controller.dart';
 
 class TextFormFieldWidget extends StatefulWidget {
@@ -103,7 +103,6 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
     if (hasFocus && hasError) return context.styles.error.copyWith(color: AppColors.errorLight);
     if (hasError) return context.styles.error;
     if (hasFocus) return context.styles.onSurface;
-    if (widget.readOnly) {}
     return context.styles.gray;
   }
 
@@ -114,7 +113,6 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
     if (hasFocus && hasError) return AppColors.errorLight;
     if (hasError) return context.colors.error;
     if (hasFocus) return context.colors.onSurface;
-    if (widget.readOnly) {}
     return context.colors.onSurface;
   }
 

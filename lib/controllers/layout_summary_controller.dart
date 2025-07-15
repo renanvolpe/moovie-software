@@ -11,6 +11,8 @@ class LayoutSummaryController extends ChangeNotifier {
     'Buttons',
     'Texts',
     'TextFieldsd',
+    'Colors',
+    'Switch'
   ];
 
   setTitle(String text) {

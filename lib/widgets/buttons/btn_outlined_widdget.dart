@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../styles/color/app_color.dart';
-import '../../../utils/app_space.dart';
-import '../../../utils/enums.dart' show BtnSize;
+import '../../styles/color/app_color.dart';
+import '../../utils/app_space.dart';
+import '../../utils/enums.dart' show BtnSize;
 
-class BtnFilledWiddget extends StatelessWidget {
-  const BtnFilledWiddget({
+class BtnOutlinedWiddget extends StatelessWidget {
+  const BtnOutlinedWiddget({
     super.key,
     required this.onPressed,
     required this.text,
@@ -27,9 +27,9 @@ class BtnFilledWiddget extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: FilledButton(
+            child: OutlinedButton(
               style: isRounded
-                  ? FilledButton.styleFrom(
+                  ? OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),

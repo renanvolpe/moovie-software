@@ -11,3 +11,17 @@ goals:
 - Make focus on UI UX experience, just layout and styles
 - Apply in Web, Desktop, mobile and mobile app-web plataforms
 - share components in mobile and web softwares
+
+
+TODO - Layout Summary:
+[] Switch buttons
+[] OutlineButtons with icons
+[] Space System (optional)
+[] icons list
+[] Swtich Theme
+
+TODO - Components:
+[] AppBar
+[] Buttons with dif color
+[] Comments widget
+[] Caractors widget
