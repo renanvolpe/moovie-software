@@ -6,6 +6,7 @@ class CustomSwitch extends StatefulWidget {
   final ValueChanged<bool> onChanged;
   final Widget left;
   final Widget right;
+  final double? width;
 
   const CustomSwitch({
     super.key,
@@ -13,6 +14,7 @@ class CustomSwitch extends StatefulWidget {
     required this.onChanged,
     required this.left,
     required this.right,
+    this.width,
   });
 
   @override
@@ -28,11 +30,18 @@ class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderSt
   final animationDuration = const Duration(milliseconds: 200);
   final double height = 40;
 
+  bool isInitalLoaded = false;
+
   @override
   void initState() {
     super.initState();
     _value = widget.value;
     _dragPosition = _value ? 1.0 : 0.0;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        isInitalLoaded = true;
+      });
+    });
   }
 
   void _onTap() {
@@ -64,8 +73,7 @@ class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderSt
 
   double _getWidgetWidth(GlobalKey key) {
     final context = key.currentContext;
-    if (context == null) return height;
-    final box = context.findRenderObject() as RenderBox;
+    final box = context!.findRenderObject() as RenderBox;
     return box.size.width;
   }
 
@@ -79,96 +87,108 @@ class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return SelectionContainer.disabled(
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final totalWidth = constraints.maxWidth;
-            final bool isInLeft = _dragPosition < 0.5;
-
-            final leftColor = isInLeft ? context.colors.onPrimaryColor : context.colors.onSurface.withOpacity(0.5);
-            final rightColor = !isInLeft ? context.colors.onPrimaryColor : context.colors.onSurface.withOpacity(0.5);
-
-            final leftWidth = _getWidgetWidth(_leftKey) + 6;
-            final rightWidth = _getWidgetWidth(_rightKey) + 6;
-
-            final thumbWidth = (isInLeft) ? leftWidth : rightWidth;
-            final thumbOffset = (isInLeft) ? 4.0 : totalWidth - leftWidth - 6;
-
-            return GestureDetector(
-              onTap: _onTap,
-              onHorizontalDragUpdate: (d) => _onDragUpdate(d, totalWidth),
-              onHorizontalDragEnd: (_) => _onDragEnd(),
-              child: Container(
-                height: height,
-                decoration: BoxDecoration(
-                  color: context.colors.surface,
-                  borderRadius: BorderRadius.circular(height),
-                  border: Border.all(color: context.colors.primary.withOpacity(0.6), width: 1.4),
-                ),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    // Thumb
-                    AnimatedPositioned(
-                      duration: animationDuration,
-                      curve: Curves.easeOut,
-                      left: thumbOffset,
-                      child: Container(
-                        width: thumbWidth,
-                        height: height - 8,
-                        decoration: BoxDecoration(
-                          color: context.colors.primary,
-                          borderRadius: BorderRadius.circular(100),
+    return SizedBox(
+      width: widget.width,
+      child: SelectionContainer.disabled(
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final totalWidth = constraints.maxWidth;
+              final bool isInLeft = _dragPosition < 0.5;
+              return GestureDetector(
+                onTap: _onTap,
+                onHorizontalDragUpdate: (d) => _onDragUpdate(d, totalWidth),
+                onHorizontalDragEnd: (_) => _onDragEnd(),
+                child: Container(
+                  height: height,
+                  decoration: BoxDecoration(
+                    color: context.colors.surface,
+                    borderRadius: BorderRadius.circular(height),
+                    border: Border.all(color: context.colors.primary.withOpacity(0.6), width: 1.4),
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      // Thumb
+                      if (isInitalLoaded)
+                        AnimatedPositioned(
+                          duration: animationDuration,
+                          curve: Curves.easeOut,
+                          left: getOffset(isInLeft, totalWidth),
+                          child: Container(
+                            width: getWidth(isInLeft),
+                            height: height - 8,
+                            decoration: BoxDecoration(
+                              color: context.colors.primary,
+                              borderRadius: BorderRadius.circular(100),
+                            ),
+                          ),
                         ),
+
+                      // Content
+                      Row(
+                        children: [
+                          Expanded(
+                            key: _leftKey,
+                            child: MouseRegion(
+                              child: Center(
+                                child: DefaultTextStyle(
+                                  style: TextStyle(
+                                    color: _getColor(isInLeft, true),
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  child: Container(
+                                    child: widget.left,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            key: _rightKey,
+                            child: MouseRegion(
+                              child: Center(
+                                child: DefaultTextStyle(
+                                  style: TextStyle(
+                                    color: _getColor(isInLeft, false),
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  child: Container(
+                                    child: widget.right,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-
-                    // Content
-                    Row(
-                      children: [
-                        Expanded(
-                          key: _leftKey,
-                          child: MouseRegion(
-                            child: Center(
-                              child: DefaultTextStyle(
-                                style: TextStyle(
-                                  color: leftColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                child: Container(
-                                  child: widget.left,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          key: _rightKey,
-                          child: MouseRegion(
-                            child: Center(
-                              child: DefaultTextStyle(
-                                style: TextStyle(
-                                  color: rightColor,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                child: Container(
-                                  child: widget.right,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
+  }
+
+  Color _getColor(bool isInLeft, bool isLeft) {
+    if (isLeft) return isInLeft ? context.colors.onPrimaryColor : context.colors.onSurface.withOpacity(0.5);
+    return !isInLeft ? context.colors.onPrimaryColor : context.colors.onSurface.withOpacity(0.5);
+  }
+
+  double getWidth(bool isInLeft) {
+    final leftWidth = _getWidgetWidth(_leftKey) + 6;
+    final rightWidth = _getWidgetWidth(_rightKey) + 6;
+
+    return isInLeft ? leftWidth : rightWidth;
+  }
+
+  double getOffset(bool isInLeft, double totalWidth) {
+    final leftWidth = _getWidgetWidth(_leftKey) + 6;
+
+    return isInLeft ? 4.0 : totalWidth - leftWidth - 6;
   }
 }

@@ -79,10 +79,9 @@ class SwitchSectionWidget extends StatelessWidget {
       children: [
         Switch(value: false, onChanged: (v) {}),
         SizedBox(
-          // width: 200,
           child: CustomSwitch(
-            
-            value: false,
+            // width: 200,
+            value: true,
             onChanged: (v) {},
             left: Text("2"),
             right: Text('asdjadlkajd'),
