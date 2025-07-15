@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
 import '../controllers/layout_summary_controller.dart';
+import 'buttons/switch_widget.dart';
 import 'components/buttons_section_widget.dart';
 import 'components/colors_section_widget.dart';
 import 'components/text_field_sections_widget.dart';
 import 'components/texts_section_widget.dart';
 import 'login.dart';
-import 'switch/switch_theme.dart';
 
 class LayoutSummary extends StatefulWidget {
   const LayoutSummary({super.key});
@@ -78,14 +78,19 @@ class SwitchSectionWidget extends StatelessWidget {
       spacing: 15,
       children: [
         Switch(value: false, onChanged: (v) {}),
-        SizedBox(
-          child: CustomSwitch(
-            width: 150,
-            value: true,
-            onChanged: (v) {},
-            left: Icon(Icons.chevron_left),
-            right: Icon(Icons.chevron_right),
-          ),
+        SwitchWidget(
+          width: 150,
+          value: true,
+          onChanged: (v) {},
+          left: Icon(Icons.sunny),
+          right: Icon(Icons.nightlight_round),
+        ),
+        SwitchWidget(
+          width: 150,
+          value: true,
+          onChanged: (v) {},
+          left: Text("Switch"),
+          right: Text("Text"),
         ),
       ],
     );

@@ -8,10 +8,8 @@ var lightSwitchTheme = SwitchThemeData(
       return Icon(Icons.sunny, color: AppColors.white, size: 26);
     }
 
-    if (states.contains(MaterialState.disabled)) {
-      return Icon(Icons.nightlight_round, color: AppColors.primary, size: 26);
-    }
-    return Icon(Icons.nightlight_round, color: AppColors.warning);
+  
+    return Icon(Icons.nightlight_round, color: AppColors.primary);
   }),
   thumbColor: MaterialStateProperty.resolveWith<Color>((states) {
     if (states.contains(MaterialState.selected)) {
