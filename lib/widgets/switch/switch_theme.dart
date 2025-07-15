@@ -138,8 +138,11 @@ class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderSt
                                     color: _getColor(isInLeft, true),
                                     fontWeight: FontWeight.w500,
                                   ),
-                                  child: Container(
-                                    child: widget.left,
+                                  child: IconTheme(
+                                    data: IconThemeData(color: _getColor(isInLeft, true)),
+                                    child: Container(
+                                      child: widget.left,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -154,8 +157,11 @@ class _CustomSwitchState extends State<CustomSwitch> with SingleTickerProviderSt
                                     color: _getColor(isInLeft, false),
                                     fontWeight: FontWeight.w500,
                                   ),
-                                  child: Container(
-                                    child: widget.right,
+                                  child: IconTheme(
+                                    data: IconThemeData(color: _getColor(isInLeft, false)),
+                                    child: Container(
+                                      child: widget.right,
+                                    ),
                                   ),
                                 ),
                               ),

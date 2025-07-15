@@ -80,11 +80,11 @@ class SwitchSectionWidget extends StatelessWidget {
         Switch(value: false, onChanged: (v) {}),
         SizedBox(
           child: CustomSwitch(
-            // width: 200,
+            width: 150,
             value: true,
             onChanged: (v) {},
-            left: Text("2"),
-            right: Text('asdjadlkajd'),
+            left: Icon(Icons.chevron_left),
+            right: Icon(Icons.chevron_right),
           ),
         ),
       ],
