@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class Validator {
+class FormValidator {
   static bool skipValidateInDebug = false;
 
   static String? required(String? value, {String fieldName = 'This field'}) {

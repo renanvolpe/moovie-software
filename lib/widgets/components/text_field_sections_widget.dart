@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
 import '../../utils/form_validators.dart';
 import '../text_form/text_field_controller.dart';
 import '../text_form/text_field_widget.dart';
+
 final formKey = GlobalKey<FormState>();
 
 class TextFieldSectionsWidget extends StatefulWidget {
@@ -33,70 +33,70 @@ class _TextFieldSectionsWidgetState extends State<TextFieldSectionsWidget> {
             TextField(
               decoration: InputDecoration(hintText: "With nothing"),
             ),
-            TextFormFieldWidget(
+            TextFieldWidget(
               controller: controllerTest,
               hintText: 'With Validator Field',
               listValidator: (text) => [
-                Validator.required(text, fieldName: 'Validator Field'),
+                FormValidator.required(text, fieldName: 'Validator Field'),
               ],
             ),
-            TextFormFieldWidget(
+            TextFieldWidget(
               controller: TextFieldController(),
               hintText: 'With Left Icon',
               leftIcon: Icon(Icons.search),
             ),
-            TextFormFieldWidget(
+            TextFieldWidget(
               controller: TextFieldController(),
               hintText: 'With Right Icon and Validators',
               rightIcon: Icon(Icons.remove_red_eye_outlined),
               listValidator: (text) => [
-                Validator.required(text, fieldName: 'fieldName'),
-                Validator.minLength(text, 5),
+                FormValidator.required(text, fieldName: 'fieldName'),
+                FormValidator.minLength(text, 5),
               ],
             ),
 
-            TextFormFieldWidget(
+            TextFieldWidget(
               controller: TextFieldController(),
               hintText: 'With Obscure text and Validator',
               rightIcon: Icon(Icons.remove_red_eye_outlined),
               obscureToggle: true,
               listValidator: (text) => [
-                Validator.required(text, fieldName: 'Obscure'),
-                Validator.minLength(text, 5),
+                FormValidator.required(text, fieldName: 'Obscure'),
+                FormValidator.minLength(text, 5),
               ],
             ),
 
-            TextFormFieldWidget(
+            TextFieldWidget(
               readOnly: true,
               controller: TextFieldController(),
               hintText: 'Read only',
             ),
 
-            TextFormFieldWidget(
+            TextFieldWidget(
               controller: TextFieldController(),
               hintText: 'Inline text and Validator',
               isInlineTextField: true,
               listValidator: (text) => [
-                Validator.minLength(text, 5),
+                FormValidator.minLength(text, 5),
               ],
             ),
 
-            TextFormFieldWidget(
+            TextFieldWidget(
               controller: TextFieldController(),
               hintText: 'Inline text',
               isInlineTextField: true,
               listValidator: (text) => [
-                Validator.minLength(text, 5),
+                FormValidator.minLength(text, 5),
               ],
             ),
 
-            TextFormFieldWidget(
+            TextFieldWidget(
               controller: TextFieldController(),
               hintText: 'Inline text obscure',
               isInlineTextField: true,
               isObscured: true,
               listValidator: (text) => [
-                Validator.minLength(text, 5),
+                FormValidator.minLength(text, 5),
               ],
             ),
 

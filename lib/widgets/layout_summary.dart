@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
 import '../controllers/layout_summary_controller.dart';
+import 'buttons/btn_underline_widget.dart';
 import 'buttons/switch_widget.dart';
 import 'components/buttons_section_widget.dart';
 import 'components/colors_section_widget.dart';
 import 'components/text_field_sections_widget.dart';
 import 'components/texts_section_widget.dart';
-import 'login.dart';
 
 class LayoutSummary extends StatefulWidget {
   const LayoutSummary({super.key});
@@ -41,7 +41,7 @@ class _LayoutSummaryState extends State<LayoutSummary> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           for (int i = 0; i < controller.listTitles.length; i++)
-                            BtnsLogin(
+                            BtnUnderlineWidget(
                               isSelected: controller.title.value == controller.listTitles[i],
                               text: controller.listTitles[i],
                               onTap: () => controller.setTitle(controller.listTitles[i]),

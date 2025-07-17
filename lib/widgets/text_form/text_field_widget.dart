@@ -5,8 +5,8 @@ import '../../styles/color/app_color.dart';
 import '../../styles/theme/textfied_inline_decoration.dart';
 import 'text_field_controller.dart';
 
-class TextFormFieldWidget extends StatefulWidget {
-  const TextFormFieldWidget({
+class TextFieldWidget extends StatefulWidget {
+  const TextFieldWidget({
     super.key,
     this.controller,
     this.hintText,
@@ -18,6 +18,7 @@ class TextFormFieldWidget extends StatefulWidget {
     this.leftIcon,
     this.onChanged,
     this.listValidator,
+    this.width,
   });
 
   final TextFieldController? controller;
@@ -30,12 +31,13 @@ class TextFormFieldWidget extends StatefulWidget {
   final bool obscureToggle;
   final Function(String)? onChanged;
   final List<String?> Function(String?)? listValidator;
+  final double? width;
 
   @override
-  State<TextFormFieldWidget> createState() => _TextFormFieldWidgetState();
+  State<TextFieldWidget> createState() => _TextFieldWidgetState();
 }
 
-class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
+class _TextFieldWidgetState extends State<TextFieldWidget> {
   late TextFieldController controller;
 
   @override
@@ -46,35 +48,38 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return AbsorbPointer(
-      absorbing: widget.readOnly,
-      child: ListenableBuilder(
-        listenable: controller,
-        builder: (_, _) => Theme(
-          data: getTheme(),
-          child: TextFormField(
-            key: controller.fieldKey,
-            focusNode: getFocusNode(),
-            controller: controller.textController,
-            readOnly: widget.readOnly,
-            obscureText: widget.isObscured ?? controller.obscureText.value,
-            cursorColor: context.colors.onSurface,
-            validator: (value) {
-              final validators = widget.listValidator?.call(value ?? '') ?? [];
-              for (final error in validators) {
-                if (error != null) return error;
-              }
-              return null;
-            },
-            decoration: InputDecoration(
-              hintText: widget.hintText,
-              labelText: widget.hintText,
-              labelStyle: getLabelStyle(),
-              prefixIcon: getPrefixIcon(widget.leftIcon),
-              prefixIconColor: getColor(),
-              suffixIcon: getIcon(widget.rightIcon),
-              suffixIconColor: getColor(),
-              enabledBorder: getEnableBorder(context),
+    return SizedBox(
+      width: widget.width,
+      child: AbsorbPointer(
+        absorbing: widget.readOnly,
+        child: ListenableBuilder(
+          listenable: controller,
+          builder: (_, _) => Theme(
+            data: getTheme(),
+            child: TextFormField(
+              key: controller.fieldKey,
+              focusNode: getFocusNode(),
+              controller: controller.textController,
+              readOnly: widget.readOnly,
+              obscureText: widget.isObscured ?? controller.obscureText.value,
+              cursorColor: context.colors.onSurface,
+              validator: (value) {
+                final validators = widget.listValidator?.call(value ?? '') ?? [];
+                for (final error in validators) {
+                  if (error != null) return error;
+                }
+                return null;
+              },
+              decoration: InputDecoration(
+                hintText: widget.hintText,
+                labelText: widget.hintText,
+                labelStyle: getLabelStyle(),
+                prefixIcon: getPrefixIcon(widget.leftIcon),
+                prefixIconColor: getColor(),
+                suffixIcon: getIcon(widget.rightIcon),
+                suffixIconColor: getColor(),
+                enabledBorder: getEnableBorder(context),
+              ),
             ),
           ),
         ),
@@ -118,7 +123,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
 
   Widget? getPrefixIcon(Icon? icon) {
     if (icon == null) return null;
-    return Icon(icon.icon, color: getColor());
+    return Icon(icon.icon, color: getColor(), size: 18);
   }
 
   Widget? getIcon(Icon? icon) {
@@ -126,6 +131,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
       return IconButton(
         icon: Icon(
           controller.obscureText.value ? Icons.visibility_off : Icons.visibility,
+          size: 18,
           color: getColor(),
         ),
         onPressed: controller.toggleObscureText,
