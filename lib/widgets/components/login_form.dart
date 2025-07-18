@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
@@ -40,9 +39,9 @@ class LoginForm extends StatelessWidget {
                 FormValidator.minLength(text, 3),
               ],
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             Text("Forgot password?", style: context.styles.onSurface),
-            SizedBox(height: 40),
+            SizedBox(height: 20),
             BtnFilledWiddget(
               text: "LOGIN",
               onPressed: () {},
