@@ -37,6 +37,7 @@ dependencies:
   heroicons: ^0.11.0
   google_fonts: ^6.2.1
   blur: ^4.0.2
+  flutter_hooks: ^0.21.2
 
 dev_dependencies:
   flutter_test:

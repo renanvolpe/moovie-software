@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:movie_software/pages/profile/profile_controller.dart';
 import 'package:movie_software/styles/context_style.dart';
-import 'package:movie_software/utils/hoverable_mixin.dart';
 
-import '../../widgets/buttons/hover_btn_widget.dart';
+import '../../models/profiel_model.dart';
 import '../../widgets/components/container_initial.dart';
+import '../profile_selected/profile_selected.dart';
+import 'profile_controller.dart';
+import 'widgets/avatar_person_widget.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -15,11 +16,25 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideFadeAnimationMixin {
   final ProfileController controller = ProfileController();
+  final Map<int, AnimationController> scaleControllers = {};
 
   @override
   void initState() {
     super.initState();
     setupSlideFadeAnimation();
+  }
+
+  void startScaleAnimation(int index, ProfileModel profile) {
+    controller.profile = profile;
+    scaleControllers[index]?.forward();
+  }
+
+  @override
+  void dispose() {
+    for (final c in scaleControllers.values) {
+      c.dispose();
+    }
+    super.dispose();
   }
 
   @override
@@ -52,39 +67,50 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideF
                               ),
                             ),
                             const SizedBox(height: 20),
-                            Text(
-                              "Renan_volpe",
-                              style: context.styles.onSurfaceS(16),
-                            ),
+                            Text("Renan_volpe", style: context.styles.onSurfaceS(16)),
                             const SizedBox(height: 10),
-                            Text(
-                              "You have successfully logged in",
-                              style: context.styles.onSurfaceS(35),
-                            ),
+                            Text("You have successfully logged in", style: context.styles.onSurfaceS(35)),
                             const SizedBox(height: 30),
                             FadeTransition(
                               opacity: fadeAnimation,
                               child: Column(
                                 children: [
-                                  Text(
-                                    "Choose your Profile",
-                                    style: context.styles.onSurfaceS(18),
-                                  ),
-                                  SizedBox(height: 10),
+                                  Text("Choose your Profile", style: context.styles.onSurfaceS(18)),
+                                  const SizedBox(height: 10),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      for (int i = 0; i < 4; i++)
-                                        GestureDetector(
-                                          onTap: () {
-                                            slideController.reset();
-                                            fadeController.reset();
-                                            Navigator.pushNamed(context, '/profile/detail', arguments: i);
-                                          },
-                                          child: AvatarPersonWidget(index: i),
+                                    children: List.generate(controller.listProfiles.length, (i) {
+                                      // Create animation controller per avatar
+                                      scaleControllers.putIfAbsent(
+                                        i,
+                                        () => AnimationController(
+                                          vsync: this,
+                                          duration: const Duration(milliseconds: 300),
                                         ),
-                                      SizedBox(width: 15),
-                                    ],
+                                      );
+
+                                      final scale = Tween<double>(begin: 1.0, end: 0.0).animate(
+                                        CurvedAnimation(
+                                          parent: scaleControllers[i]!,
+                                          curve: Curves.easeInOut,
+                                        ),
+                                      );
+
+                                      return AnimatedBuilder(
+                                        animation: scale,
+                                        builder: (_, child) => Transform.scale(
+                                          scale: scale.value,
+                                          child: child,
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                                          child: AvatarPersonWidget(
+                                            profileModel: controller.listProfiles[i],
+                                            onTap: () => startScaleAnimation(i, controller.listProfiles[i]),
+                                          ),
+                                        ),
+                                      );
+                                    }),
                                   ),
                                 ],
                               ),
@@ -101,99 +127,5 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideF
         ),
       ),
     );
-  }
-}
-
-class AvatarPersonWidget extends StatefulWidget {
-  const AvatarPersonWidget({super.key, required this.index});
-  final int index;
-  @override
-  State<AvatarPersonWidget> createState() => _AvatarPersonWidgetState();
-}
-
-class _AvatarPersonWidgetState extends State<AvatarPersonWidget> with HoverableMixin {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(8),
-      child: HoverTapWidget(
-        onHover: handleHover,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeOut,
-          width: isHovered ? 80 : 70,
-          height: isHovered ? 80 : 70,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.grey[300],
-          ),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Icon(
-                Icons.person,
-                size: isHovered ? 40 : 35,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-              Text('${widget.index + 1}'.toString(), style: context.styles.black.copyWith(fontWeight: FontWeight.bold)),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-mixin SlideFadeAnimationMixin<T extends StatefulWidget> on State<T>, TickerProviderStateMixin<T> {
-  late AnimationController slideController;
-  late AnimationController fadeController;
-
-  late Animation<Offset> slideAnimation;
-  late Animation<double> fadeAnimation;
-
-  Duration get slideDuration => const Duration(milliseconds: 600);
-  Duration get fadeDuration => const Duration(milliseconds: 500);
-
-  bool _hasTriggered = false;
-
-  void setupSlideFadeAnimation() {
-    slideController = AnimationController(vsync: this, duration: slideDuration);
-    fadeController = AnimationController(vsync: this, duration: fadeDuration);
-
-    slideAnimation =
-        Tween<Offset>(
-          begin: const Offset(0, 0.3),
-          end: Offset.zero,
-        ).animate(
-          CurvedAnimation(
-            parent: slideController,
-            curve: Curves.easeOut,
-          ),
-        );
-
-    fadeAnimation = CurvedAnimation(
-      parent: fadeController,
-      curve: Curves.easeIn,
-    );
-
-    // Start initial animations
-    triggerSlideFadeTransition();
-  }
-
-  void triggerSlideFadeTransition() {
-    if (_hasTriggered) return;
-    _hasTriggered = true;
-
-    slideController.forward().whenComplete(() {
-      fadeController.forward();
-    });
-  }
-
-  @mustCallSuper
-  @override
-  void dispose() {
-    slideController.dispose();
-    fadeController.dispose();
-    super.dispose();
   }
 }
