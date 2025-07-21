@@ -44,7 +44,9 @@ class LoginForm extends StatelessWidget {
             SizedBox(height: 20),
             BtnFilledWiddget(
               text: "LOGIN",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
               btnSize: BtnSize.s,
             ),
           ],
