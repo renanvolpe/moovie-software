@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../../main.dart';
 import '../../utils/app_animation.dart';
+import '../../utils/navigation.dart';
 import '../../widgets/components/container_initial.dart';
 import 'profile_controller.dart';
 import 'widgets/avatar_person_widget.dart';

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 import '../color/app_color.dart';
@@ -28,12 +26,12 @@ var btnFilledThemedark = FilledButtonThemeData(
     textStyle: const TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.bold,
-       letterSpacing: 0.3,
+      letterSpacing: 0.3,
       fontFamily: 'lato',
     ),
     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     elevation: 4,
-    shadowColor: AppColors.gray.withValues(alpha: 0.9),
+    shadowColor: AppColors.backgroundDark.withValues(alpha: 0.9),
   ),
 );
