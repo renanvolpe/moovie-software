@@ -1,27 +1,138 @@
-# movie_software
-
-A new Flutter project.
-
-## Getting Started
-
-figma reference:
-https://www.figma.com/design/7UcT1z2GBcXN97ebcnMBEU/Movie---Series-Website--Community-?node-id=0-1&p=f&t=a2rDoR6JQpCw5NHr-0
-
-goals:
-- Make focus on UI UX experience, just layout and styles
-- Apply in Web, Desktop, mobile and mobile app-web plataforms
-- share components in mobile and web softwares
 
 
-TODO - Layout Summary:
-[] Switch buttons
-[] OutlineButtons with icons
-[] Space System (optional)
-[] icons list
-[] Swtich Theme
+# 🎬 Flutter Movie App - Version 1
 
-TODO - Components:
-[] AppBar
-[] Buttons with dif color
-[] Comments widget
-[] Caractors widget
+A Flutter project focused on **web and desktop platforms**, designed to explore Flutter's differences compared to other web frameworks. This version includes:
+
+- ✅ Login Page  
+- ✅ Signup Page  
+- ✅ Profile Page  
+- ✅ Select Profile Page  
+
+> This is **Version 1**. The next version will include:  
+> 🏠 Home Page, 🎞️ Movie Detail Page, and ▶️ Movie Playing Page.
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login](https://i.ibb.co/YTLTgSBQ/Login.png)
+
+### 📝 Signup Page
+![Signup](https://i.ibb.co/pB3BXZ0W/ignup.png)
+
+### 👤 Profile Page
+![Profile](https://i.ibb.co/XxL29nVj/profile.png)
+
+### 🔄 Select Profile Page
+![Select Profile](https://i.ibb.co/JM2c42n/select-profile.png)
+
+
+## 🛠️ Technologies & Architecture
+
+- **Flutter** for Desktop and Web
+- **Native Flutter State Management**: `ValueNotifier` and `ListenableBuilder`
+- **Custom Theming with Light & Dark Modes**
+- **Reusable Custom UI Components**:
+  - `filled_btn_custom.dart`
+  - `outlined_btn_custom.dart`
+  - `switch_decoration.dart`
+  - `textfied_decoration.dart`
+
+## 🎨 Styling Focus
+
+The project has a strong focus on UI styling:
+- Global `AppColors` for consistent color usage
+- `TextStyleDefault` for typography
+- ThemeData organized for both light and dark themes
+
+## 🎞️ Page Animations
+
+All pages and widgets use smooth entrance animations, implemented via **custom mixins**.  
+Example animation mixin used across widgets:
+
+```dart
+mixin SlideFadeAnimationMixin<T extends StatefulWidget> on State<T>, TickerProviderStateMixin<T> {
+  late AnimationController slideController;
+  late AnimationController fadeController;
+
+  late Animation<Offset> slideAnimation;
+  late Animation<double> fadeAnimation;
+
+  Duration get slideDuration => AppUtils.slow;
+  Duration get fadeDuration => AppUtils.normal;
+
+  bool _hasTriggered = false;
+
+  void setupSlideFadeAnimation() {
+    slideController = AnimationController(vsync: this, duration: slideDuration);
+    fadeController = AnimationController(vsync: this, duration: fadeDuration);
+
+    slideAnimation =
+        Tween<Offset>(
+          begin: const Offset(0, 0.3),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: slideController,
+            curve: Curves.easeOut,
+          ),
+        );
+
+    fadeAnimation = CurvedAnimation(
+      parent: fadeController,
+      curve: Curves.easeIn,
+    );
+
+    triggerSlideFadeTransition();
+  }
+
+  void triggerSlideFadeTransition() {
+    if (_hasTriggered) return;
+    _hasTriggered = true;
+
+    slideController.forward().whenComplete(() {
+      fadeController.forward();
+    });
+  }
+
+  @mustCallSuper
+  @override
+  void dispose() {
+    slideController.dispose();
+    fadeController.dispose();
+    super.dispose();
+  }
+}
+```
+
+## 📦 Getting Started
+
+1. Clone the repository  
+2. Run `flutter pub get`  
+3. Execute with `flutter run -d chrome` or use your desktop device
+
+> 💡 Recommended for developers wanting to understand Flutter Web & Desktop differences.
+
+---
+
+## 🚧 Roadmap
+
+- [x] Auth Screens (Login, Signup)
+- [x] Profile Management
+- [ ] Home Page
+- [ ] Movie Detail Page
+- [ ] Movie Playing Page
+
+---
+
+## 🧑‍💻 Author 
+
+**Dev Renan Volpe**
+
+Project created as a learning experience with Flutter for Web/Desktop.  
+Feel free to fork, contribute, or give feedback!
+
+[![GitHub](https://img.shields.io/badge/GitHub-renanvolpe-181717?logo=github)](https://github.com/renanvolpe)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-renanvolpe-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/renanvolpe/)
+
+
