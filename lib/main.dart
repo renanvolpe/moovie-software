@@ -4,6 +4,7 @@ import 'package:movie_software/pages/profile/profile.dart';
 import 'package:movie_software/pages/profile_selected/profile_selected.dart';
 import 'package:movie_software/utils/app_animation.dart';
 
+import 'models/profiel_model.dart';
 import 'pages/login/login.dart';
 import 'styles/theme/theme.dart' show AppTheme;
 
@@ -60,7 +61,7 @@ Route<dynamic> _onGenerateRoute(RouteSettings settings) {
         break;
 
       case AppRoutes.profileDetail:
-        page = (_) => ProfileSelected(index: args as int);
+        page = (_) => ProfileSelected(profileModel: args as ProfileModel);
         break;
 
       default:
