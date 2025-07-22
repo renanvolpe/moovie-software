@@ -30,7 +30,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideF
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: ContainerInitial(
         child: Column(
           children: [

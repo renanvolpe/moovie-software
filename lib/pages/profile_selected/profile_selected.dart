@@ -37,7 +37,6 @@ class _ProfileSelectedState extends State<ProfileSelected> with TickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: ContainerInitial(
         child: ListenableBuilder(
           listenable: controller,
