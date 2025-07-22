@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../../models/profiel_model.dart';
+import '../../main.dart';
+import '../../utils/app_animation.dart';
 import '../../widgets/components/container_initial.dart';
-import '../profile_selected/profile_selected.dart';
 import 'profile_controller.dart';
 import 'widgets/avatar_person_widget.dart';
+import 'widgets/scale_animation_mixin.dart';
+import 'widgets/slide_fade_animation_mixin.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -14,27 +16,15 @@ class Profile extends StatefulWidget {
   State<Profile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideFadeAnimationMixin {
+class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideFadeAnimationMixin, ScaleAnimationMixin {
   final ProfileController controller = ProfileController();
-  final Map<int, AnimationController> scaleControllers = {};
 
   @override
   void initState() {
     super.initState();
     setupSlideFadeAnimation();
-  }
-
-  void startScaleAnimation(int index, ProfileModel profile) {
-    controller.profile = profile;
-    scaleControllers[index]?.forward();
-  }
-
-  @override
-  void dispose() {
-    for (final c in scaleControllers.values) {
-      c.dispose();
-    }
-    super.dispose();
+    initScaleController(controller.listProfiles.length);
+    _listenChangePage();
   }
 
   @override
@@ -80,33 +70,28 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideF
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: List.generate(controller.listProfiles.length, (i) {
-                                      // Create animation controller per avatar
                                       scaleControllers.putIfAbsent(
                                         i,
                                         () => AnimationController(
                                           vsync: this,
-                                          duration: const Duration(milliseconds: 300),
-                                        ),
-                                      );
-
-                                      final scale = Tween<double>(begin: 1.0, end: 0.0).animate(
-                                        CurvedAnimation(
-                                          parent: scaleControllers[i]!,
-                                          curve: Curves.easeInOut,
+                                          duration: AppUtils.fast,
                                         ),
                                       );
 
                                       return AnimatedBuilder(
-                                        animation: scale,
+                                        animation: getScale(i),
                                         builder: (_, child) => Transform.scale(
-                                          scale: scale.value,
+                                          scale: getScale(i).value,
                                           child: child,
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(horizontal: 8),
                                           child: AvatarPersonWidget(
                                             profileModel: controller.listProfiles[i],
-                                            onTap: () => startScaleAnimation(i, controller.listProfiles[i]),
+                                            onTap: () {
+                                              controller.profile = controller.listProfiles[i];
+                                              scaleControllers[i]!.forward();
+                                            },
                                           ),
                                         ),
                                       );
@@ -127,5 +112,19 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideF
         ),
       ),
     );
+  }
+
+  void _listenChangePage() {
+    for (var sController in scaleControllers.values) {
+      sController.addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          Navigator.pushNamed(
+            context,
+            AppRoutes.profileDetail,
+            arguments: controller.profileSelected!,
+          );
+        }
+      });
+    }
   }
 }

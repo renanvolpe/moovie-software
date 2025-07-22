@@ -3,29 +3,35 @@ import 'package:movie_software/styles/context_style.dart';
 import 'package:movie_software/utils/enums.dart';
 import 'package:movie_software/widgets/buttons/btn_outlined_widdget.dart';
 
+import '../../models/profiel_model.dart';
 import '../../widgets/components/container_initial.dart';
+import '../profile/widgets/avatar_person_widget.dart';
 import 'profile_selected_controller.dart';
+import 'widgets/scale_fade_animation.dart';
 
 class ProfileSelected extends StatefulWidget {
-  const ProfileSelected({super.key, required this.index});
+  const ProfileSelected({super.key, required this.profileModel});
 
-  final int index;
+  final ProfileModel profileModel;
 
   @override
   State<ProfileSelected> createState() => _ProfileSelectedState();
 }
 
-class _ProfileSelectedState extends State<ProfileSelected> with TickerProviderStateMixin, SlideFadeAnimationMixin {
-  final ProfileSelectedController controller = ProfileSelectedController();
+class _ProfileSelectedState extends State<ProfileSelected> with TickerProviderStateMixin, ScaleFadeAnimationMixin {
+  late final ProfileSelectedController controller;
 
   @override
   void initState() {
     super.initState();
+    controller = ProfileSelectedController(widget.profileModel);
+    setupscaleFadeAnimation();
+
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(Duration(milliseconds: 800));
+      await Future.delayed(Duration(milliseconds: 300));
       controller.isLoading = false;
+      fadeController.forward();
     });
-    setupSlideFadeAnimation();
   }
 
   @override
@@ -36,42 +42,46 @@ class _ProfileSelectedState extends State<ProfileSelected> with TickerProviderSt
         child: ListenableBuilder(
           listenable: controller,
           builder: (context, child) {
-            if (controller.isLoading) return Center(child: CircularProgressIndicator());
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: CircleAvatar(
-                      radius: 80,
-                      child: Stack(
-                        alignment: Alignment.center,
+                  ScaleTransition(
+                    scale: scaleController,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: AvatarPersonWidget(
+                        profileModel: controller.profileModel,
+                        onTap: () {},
+                        isDisable: true,
+                        size: 200,
+                      ),
+                    ),
+                  ),
+                  if (controller.isLoading)
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: CircularProgressIndicator(),
+                    )
+                  else
+                    FadeTransition(
+                      opacity: fadeAnimation,
+                      child: Column(
                         children: [
-                          Icon(
-                            Icons.person,
-                            size: 80,
-                            color: Theme.of(context).colorScheme.onSurface,
-                          ),
+                          SizedBox(height: 20),
                           Text(
-                            ': ${1}',
-                            style: context.styles.blackS(30).copyWith(fontWeight: FontWeight.bold),
+                            '${controller.profileModel.name}, your account has been successfully created ',
+                            style: context.styles.onSurfaceS(23),
+                          ),
+                          SizedBox(height: 20),
+                          BtnOutlinedWiddget(
+                            onPressed: () {},
+                            btnSize: BtnSize.m,
+                            text: 'WATCH MOVIES',
                           ),
                         ],
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'Your account has been successfully created User ${1}',
-                    style: context.styles.onSurfaceS(23),
-                  ),
-                  SizedBox(height: 20),
-                  BtnOutlinedWiddget(
-                    onPressed: () {},
-                    btnSize: BtnSize.m,
-                    text: 'WATCH MOVIES',
-                  ),
                 ],
               ),
             );
@@ -79,59 +89,5 @@ class _ProfileSelectedState extends State<ProfileSelected> with TickerProviderSt
         ),
       ),
     );
-  }
-}
-
-mixin SlideFadeAnimationMixin<T extends StatefulWidget> on State<T>, TickerProviderStateMixin<T> {
-  late AnimationController slideController;
-  late AnimationController fadeController;
-
-  late Animation<Offset> slideAnimation;
-  late Animation<double> fadeAnimation;
-
-  Duration get slideDuration => const Duration(milliseconds: 600);
-  Duration get fadeDuration => const Duration(milliseconds: 500);
-
-  bool _hasTriggered = false;
-
-  void setupSlideFadeAnimation() {
-    slideController = AnimationController(vsync: this, duration: slideDuration);
-    fadeController = AnimationController(vsync: this, duration: fadeDuration);
-
-    slideAnimation =
-        Tween<Offset>(
-          begin: const Offset(0, 0.3),
-          end: Offset.zero,
-        ).animate(
-          CurvedAnimation(
-            parent: slideController,
-            curve: Curves.easeOut,
-          ),
-        );
-
-    fadeAnimation = CurvedAnimation(
-      parent: fadeController,
-      curve: Curves.easeIn,
-    );
-
-    // Start initial animations
-    triggerSlideFadeTransition();
-  }
-
-  void triggerSlideFadeTransition() {
-    if (_hasTriggered) return;
-    _hasTriggered = true;
-
-    slideController.forward().whenComplete(() {
-      fadeController.forward();
-    });
-  }
-
-  @mustCallSuper
-  @override
-  void dispose() {
-    slideController.dispose();
-    fadeController.dispose();
-    super.dispose();
   }
 }

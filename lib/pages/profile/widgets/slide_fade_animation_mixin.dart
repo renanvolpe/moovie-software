@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+
+import '../../../utils/app_animation.dart';
 
 mixin SlideFadeAnimationMixin<T extends StatefulWidget> on State<T>, TickerProviderStateMixin<T> {
   late AnimationController slideController;
@@ -8,8 +9,8 @@ mixin SlideFadeAnimationMixin<T extends StatefulWidget> on State<T>, TickerProvi
   late Animation<Offset> slideAnimation;
   late Animation<double> fadeAnimation;
 
-  Duration get slideDuration => const Duration(milliseconds: 600);
-  Duration get fadeDuration => const Duration(milliseconds: 500);
+  Duration get slideDuration => AppUtils.slow;
+  Duration get fadeDuration => AppUtils.normal;
 
   bool _hasTriggered = false;
 

@@ -12,12 +12,12 @@ class AvatarPersonWidget extends StatefulWidget {
     required this.profileModel,
     required this.onTap,
     this.size = 100,
-    this.increaseOnHove = true,
+    this.isDisable = false,
   });
   final ProfileModel profileModel;
   final VoidCallback? onTap;
   final double size;
-  final bool increaseOnHove;
+  final bool isDisable;
   @override
   State<AvatarPersonWidget> createState() => _AvatarPersonWidgetState();
 }
@@ -30,7 +30,7 @@ class _AvatarPersonWidgetState extends State<AvatarPersonWidget> with HoverableM
       child: Column(
         children: [
           HoverTapWidget(
-            onHover: widget.increaseOnHove ? handleHover : (_) {},
+            onHover: widget.isDisable ? (_) {} : handleHover,
             onTap: widget.onTap,
             child: AnimatedContainer(
               duration: AppUtils.fast,
