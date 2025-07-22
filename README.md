@@ -14,17 +14,22 @@ A Flutter project focused on **web and desktop platforms**, designed to explore 
 
 ## 📸 Screenshots
 
-### 🔐 Login Page
-![Login](https://i.ibb.co/YTLTgSBQ/Login.png)
 
-### 📝 Signup Page
-![Signup](https://i.ibb.co/pB3BXZ0W/ignup.png)
+### 🔐 Login Page  
+<img src="https://i.ibb.co/FqDqp143/image.png" alt="Login" width="80%" />
 
-### 👤 Profile Page
-![Profile](https://i.ibb.co/XxL29nVj/profile.png)
 
-### 🔄 Select Profile Page
-![Select Profile](https://i.ibb.co/JM2c42n/select-profile.png)
+### 📝 Signup Page  
+<img src="https://i.ibb.co/Jwzwk2Bx/image.png" alt="Signup" width="80%" />
+
+
+### 👤 Profile Page  
+<img src="https://i.ibb.co/3mdrwxk4/image.png" alt="Profile" width="80%" />
+
+
+### 🔄 Select Profile Page  
+<img src="https://i.ibb.co/TFRwSRc/image.png" alt="Select Profile" width="80%" />
+
 
 
 ## 🛠️ Technologies & Architecture
