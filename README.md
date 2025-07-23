@@ -24,11 +24,11 @@ A Flutter project focused on **web and desktop platforms**, designed to explore 
 
 
 ### 👤 Profile Page  
-<img src="https://i.ibb.co/3mdrwxk4/image.png" alt="Profile" width="80%" />
+<img src="https://i.ibb.co/B5fpDhqd/image.png" alt="Profile" width="80%" />
 
 
 ### 🔄 Select Profile Page  
-<img src="https://i.ibb.co/TFRwSRc/image.png" alt="Select Profile" width="80%" />
+<img src="https://i.ibb.co/67tjdwVk/image.png" alt="Select Profile" width="80%" />
 
 
 
