@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/profiel_model.dart';
+import '../pages/home/home.dart';
 import '../pages/login/login.dart';
 import '../pages/profile/profile.dart';
 import '../pages/profile_selected/profile_selected.dart';
@@ -24,6 +25,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         page = (_) => ProfileSelected(profileModel: args as ProfileModel);
         break;
 
+      case AppRoutes.home:
+        page = (_) => Home();
+        break;
+
       default:
         page = (_) => const Scaffold(
           body: Center(child: Text('Page not found')),
@@ -37,7 +42,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
   return PageRouteBuilder(
     settings: settings,
-    pageBuilder: (context, __, ___) => SelectionArea(child: page(context)),
+    pageBuilder: (context, __, ___) => SelectionArea(child: Scaffold(body: page(context))),
     transitionsBuilder: (_, animation, __, child) {
       return FadeTransition(opacity: animation, child: child);
     },

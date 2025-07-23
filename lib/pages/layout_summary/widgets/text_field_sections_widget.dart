@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../../utils/form_validators.dart';
-import '../text_form/text_field_controller.dart';
-import '../text_form/text_field_widget.dart';
+import '../../../utils/form_validators.dart';
+import '../../../widgets/text_form/text_field_controller.dart';
+import '../../../widgets/text_form/text_field_widget.dart';
 
 final formKey = GlobalKey<FormState>();
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../../utils/enums.dart';
-import '../buttons/btn_filled_widdget.dart';
-import '../buttons/btn_outlined_widdget.dart';
+import '../../../utils/enums.dart';
+import '../../../widgets/buttons/btn_filled_widdget.dart';
+import '../../../widgets/buttons/btn_outlined_widdget.dart';
 
 class ButtonsSectionWidget extends StatelessWidget {
   const ButtonsSectionWidget({super.key});

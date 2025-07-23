@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../controllers/layout_summary_controller.dart';
-import 'buttons/btn_underline_widget.dart';
-import 'buttons/switch_widget.dart';
-import 'components/buttons_section_widget.dart';
-import 'components/colors_section_widget.dart';
-import 'components/text_field_sections_widget.dart';
-import 'components/texts_section_widget.dart';
+import '../../controllers/layout_summary_controller.dart';
+import '../../widgets/buttons/btn_underline_widget.dart';
+import 'widgets/buttons_section_widget.dart';
+import 'widgets/colors_section_widget.dart';
+import 'widgets/switch_section_widget.dart';
+import 'widgets/text_field_sections_widget.dart';
+import 'widgets/texts_section_widget.dart';
 
 class LayoutSummary extends StatefulWidget {
   const LayoutSummary({super.key});
@@ -67,35 +67,7 @@ class _LayoutSummaryState extends State<LayoutSummary> {
   }
 }
 
-class SwitchSectionWidget extends StatelessWidget {
-  const SwitchSectionWidget({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      spacing: 15,
-      children: [
-        Switch(value: false, onChanged: (v) {}),
-        SwitchWidget(
-          width: 150,
-          value: true,
-          onChanged: (v) {},
-          left: Icon(Icons.sunny),
-          right: Icon(Icons.nightlight_round),
-        ),
-        SwitchWidget(
-          width: 150,
-          value: true,
-          onChanged: (v) {},
-          left: Text("Switch"),
-          right: Text("Text"),
-        ),
-      ],
-    );
-  }
-}
 
 class AppbarCustom extends StatelessWidget implements PreferredSizeWidget {
   const AppbarCustom({super.key});

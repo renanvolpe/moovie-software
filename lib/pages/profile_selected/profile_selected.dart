@@ -4,6 +4,7 @@ import 'package:movie_software/utils/enums.dart';
 import 'package:movie_software/widgets/buttons/btn_outlined_widdget.dart';
 
 import '../../models/profiel_model.dart';
+import '../../utils/navigation.dart';
 import '../../widgets/components/container_initial.dart';
 import '../profile/widgets/avatar_person_widget.dart';
 import 'profile_selected_controller.dart';
@@ -74,7 +75,9 @@ class _ProfileSelectedState extends State<ProfileSelected> with TickerProviderSt
                           ),
                           SizedBox(height: 20),
                           BtnOutlinedWiddget(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, AppRoutes.home);
+                            },
                             btnSize: BtnSize.m,
                             text: 'WATCH MOVIES',
                           ),
