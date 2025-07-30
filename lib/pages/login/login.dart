@@ -3,7 +3,8 @@ import 'package:movie_software/pages/login/login_controller.dart';
 import 'package:movie_software/styles/context_style.dart';
 import 'package:movie_software/utils/app_animation.dart';
 
-import '../../widgets/buttons/btn_underline_widget.dart';
+import '../../components/btn_underline_widget.dart';
+import '../../components/logo_widget.dart';
 import '../../widgets/components/container_initial.dart';
 import '../../widgets/components/image_login_widget.dart';
 import '../../widgets/components/login_form.dart';
@@ -38,13 +39,7 @@ class _LoginState extends State<Login> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          child: Image.asset(
-                            'assets/logo-light.png',
-                            width: 150,
-                            height: 150,
-                          ),
-                        ),
+                       LogoWidget(),
                         Text(
                           "Films",
                           style: context.styles.whiteS(55),

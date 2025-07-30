@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import '../../components/app_bar_widget.dart';
+
 class ControllerGet {
   Future<String> getData(int count) async {
     await Future.delayed(const Duration(seconds: 1));
@@ -18,7 +20,7 @@ class Home extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useMemoized(() => ControllerGet()); // good practice
+    final controller = useMemoized(() => ControllerGet()); 
     final controller2 = ControllerGet();
     final count = useState(0);
 
@@ -29,7 +31,7 @@ class Home extends HookWidget {
     final snapshot2 = useFuture(future2);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Flutter Hooks")),
+      appBar: AppBarWidget(),
       body: Center(
         child: snapshot.connectionState == ConnectionState.done || snapshot2.connectionState == ConnectionState.done
             ? Column(

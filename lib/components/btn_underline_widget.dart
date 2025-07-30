@@ -1,10 +1,12 @@
-import 'dart:ui';
+
+import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../../utils/app_animation.dart';
-import '../../utils/hoverable_mixin.dart';
+import '../utils/app_animation.dart';
+import '../utils/hoverable_mixin.dart';
+import '../widgets/buttons/hover_btn_widget.dart';
 
 class BtnUnderlineWidget extends StatefulWidget {
   const BtnUnderlineWidget({
@@ -26,10 +28,9 @@ class BtnUnderlineWidgetState extends State<BtnUnderlineWidget> with HoverableMi
   @override
   Widget build(BuildContext context) {
     return IntrinsicWidth(
-      child: MouseRegion(
-        onEnter: (_) => handleHover(true),
-        onExit: (_) => handleHover(false),
-        cursor: SystemMouseCursors.click,
+      child: HoverTapWidget(
+        onTap: widget.onTap,
+        onHover: handleHover,
         child: GestureDetector(
           onTap: widget.onTap,
           behavior: HitTestBehavior.opaque,

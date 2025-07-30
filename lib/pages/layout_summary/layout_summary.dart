@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
+import '../../components/btn_underline_widget.dart';
 import '../../controllers/layout_summary_controller.dart';
-import '../../widgets/buttons/btn_underline_widget.dart';
 import 'widgets/buttons_section_widget.dart';
 import 'widgets/colors_section_widget.dart';
 import 'widgets/switch_section_widget.dart';
