@@ -14,6 +14,7 @@ A Flutter project focused on **web and desktop platforms**, designed to explore 
 
 ## 📸 Screenshots
 
+Figma: https://www.figma.com/design/7UcT1z2GBcXN97ebcnMBEU/Movie---Series-Website--Community-?node-id=0-1&p=f&t=a2rDoR6JQpCw5NHr-0
 
 ### 🔐 Login Page  
 <img src="https://i.ibb.co/FqDqp143/image.png" alt="Login" width="80%" />

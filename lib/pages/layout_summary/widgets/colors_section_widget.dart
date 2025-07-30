@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
@@ -40,7 +39,7 @@ class ColorsSectionWidget extends StatelessWidget {
       MapEntry('inverseSurface', context.colors.inverseSurface),
       MapEntry('onInverseSurface', context.colors.onInverseSurface),
       MapEntry('successColor', context.colors.successColor),
-      MapEntry('warningColor', context.colors.warningColor),
+      MapEntry('warningColor', context.colors.warning),
     ];
 
     return Column(

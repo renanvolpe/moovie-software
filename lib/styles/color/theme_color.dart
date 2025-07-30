@@ -96,5 +96,5 @@ class ThemeColor {
   Color get onInverseSurface => _colorScheme.onInverseSurface;
 
   Color get successColor => AppColors.success;
-  Color get warningColor => AppColors.warning;
+  Color get warning => AppColors.warning;
 }

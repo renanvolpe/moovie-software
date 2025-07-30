@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:movie_software/styles/context_style.dart';
 
-import '../../components/app_bar_widget.dart';
+import '../../components/appbar/app_bar_widget.dart';
+import '../../utils/enums.dart';
+import '../../widgets/buttons/btn_filled_widdget.dart';
+import '../../widgets/buttons/btn_outlined_widdget.dart';
+import 'widgets/banner_widget.dart';
 
 class ControllerGet {
   Future<String> getData(int count) async {
@@ -20,33 +25,28 @@ class Home extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useMemoized(() => ControllerGet()); 
-    final controller2 = ControllerGet();
-    final count = useState(0);
-
-    final future = useMemoized(() => controller.getData(count.value), [count.value]);
-    final future2 = useMemoized(() => controller2.getSecondData(count.value), [count.value]);
-
-    final snapshot = useFuture(future);
-    final snapshot2 = useFuture(future2);
-
     return Scaffold(
       appBar: AppBarWidget(),
-      body: Center(
-        child: snapshot.connectionState == ConnectionState.done || snapshot2.connectionState == ConnectionState.done
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+      extendBodyBehindAppBar: true,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            BannerWidget(),
+            SizedBox(
+              height: 600,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(snapshot.data!),
-                  SizedBox(height: 15),
-                  Text(snapshot2.data!),
+                  Text(
+                    "Trends",
+                    style: context.styles.onPrimaryS(30),
+                  ),
                 ],
-              )
-            : const CircularProgressIndicator(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => count.value++,
-        child: const Icon(Icons.refresh),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
