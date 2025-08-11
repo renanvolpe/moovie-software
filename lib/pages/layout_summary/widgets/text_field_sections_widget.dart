@@ -103,7 +103,6 @@ class _TextFieldSectionsWidgetState extends State<TextFieldSectionsWidget> {
             TextButton(
               onPressed: () {
                 formKey.currentState?.validate();
-                print("controllerTest.text:${controllerTest.text}");
               },
               child: Text("Validate"),
             ),
