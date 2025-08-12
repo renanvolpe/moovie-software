@@ -12,6 +12,7 @@ class AppUtils {
   static const BorderRadius borderRadiusM = BorderRadius.all(Radius.circular(12));
   static const BorderRadius borderRadiusL = BorderRadius.all(Radius.circular(20));
   static const BorderRadius borderRadiusXL = BorderRadius.all(Radius.circular(32));
+  static const BorderRadius borderRadiusXXL = BorderRadius.all(Radius.circular(60));
 
   // Spacing / padding
   static const EdgeInsets paddingXS = EdgeInsets.all(4);

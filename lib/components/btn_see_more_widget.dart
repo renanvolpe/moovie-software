@@ -24,14 +24,14 @@ class _BtnSeeMoreWidgetState extends State<BtnSeeMoreWidget> with HoverableMixin
       onTap: widget.onTap,
       child: AnimatedContainer(
         duration: AppUtils.fast,
-        padding: EdgeInsets.symmetric(vertical: 3, horizontal: 6),
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
         decoration: BoxDecoration(
           color: isHovered ? context.colors.onPrimaryColor.withValues(alpha: 0.05) : Colors.transparent,
           borderRadius: AppUtils.borderRadiusL,
         ),
         child: Row(
           children: [
-            Text("See More", style: context.styles.primary),
+            Text("See More", style: context.styles.primary.copyWith(fontWeight: FontWeight.w700)),
             SizedBox(width: 8),
             Icon(Icons.arrow_forward_rounded, color: context.colors.primary),
           ],

@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../components/appbar/app_bar_widget.dart';
 import 'widgets/banner_widget.dart';
+import 'widgets/globe_awards_widget.dart';
 import 'widgets/movie_category_widget.dart';
 import 'widgets/trends_widget.dart';
 
@@ -21,6 +22,8 @@ class Home extends HookWidget {
             BannerWidget(),
             TrendsWidget(),
             MovieCategoryWidget(),
+            SizedBox(height: 80),
+            GlobeAwardsWidget(),
             SizedBox(height: 200),
           ],
         ),
