@@ -28,6 +28,7 @@ class AppColors {
 
   static const Color backgroundLight = Color(0xFFEBFAFF);
   static const Color backgroundDark = Color(0xFF030A1B);
+  static const Color backgroundDark2 = Color.fromARGB(48, 3, 10, 27);
 
   static const Color surface = Color(0xFFEBFAFF);
   static const Color surfaceLight = Color(0xFFFFFFFF);
