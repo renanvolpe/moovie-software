@@ -1,4 +1,3 @@
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
@@ -8,7 +7,12 @@ import '../utils/hoverable_mixin.dart';
 import '../widgets/buttons/hover_btn_widget.dart';
 
 class ImageMovieWidget extends StatefulWidget {
-  const ImageMovieWidget({super.key, required this.path, required this.name, required this.onTap,});
+  const ImageMovieWidget({
+    super.key,
+    required this.path,
+    required this.name,
+    required this.onTap,
+  });
 
   final String path;
   final String name;
@@ -33,9 +37,11 @@ class _ImageMovieWidgetState extends State<ImageMovieWidget> with HoverableMixin
                 scale: isHovered ? 1.1 : 1.0,
                 duration: AppUtils.fast,
                 curve: Curves.easeOut,
-                child: Image.asset(
-                  widget.path,
-                  fit: BoxFit.cover,
+                child: RepaintBoundary(
+                  child: Image.asset(
+                    widget.path,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
