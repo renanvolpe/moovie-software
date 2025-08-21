@@ -39,7 +39,7 @@ class _LoginState extends State<Login> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                       LogoWidget(),
+                        LogoWidget(),
                         Text(
                           "Films",
                           style: context.styles.whiteS(55),

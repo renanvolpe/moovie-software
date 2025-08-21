@@ -17,8 +17,6 @@ class CollectionWiddget extends StatelessWidget {
   Widget build(BuildContext context) {
     List<TrendsModel> listCollection = List.from(mockTrendsMovies)..shuffle();
     return SizedBox(
-      // height: 800,
-      // width: 700,
       child: Column(
         children: [
           Padding(

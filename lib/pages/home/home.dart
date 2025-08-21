@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../../components/appbar/app_bar_widget.dart';
 import 'widgets/banner_widget.dart';
 import 'widgets/collection_widget.dart';
+import 'widgets/continue_watching_widget.dart';
 import 'widgets/globe_awards_widget.dart';
 import 'widgets/movie_category_widget.dart';
 import 'widgets/price_widget.dart';
@@ -29,6 +30,7 @@ class Home extends HookWidget {
             MovieCategoryWidget(),
             PriceWidget(),
             CollectionWiddget(),
+            ContinueWatchingWidget(),
             SizedBox(height: 200),
           ],
         ),
