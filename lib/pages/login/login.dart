@@ -6,7 +6,7 @@ import 'package:movie_software/utils/app_animation.dart';
 import '../../components/btn_underline_widget.dart';
 import '../../components/logo_widget.dart';
 import '../../widgets/components/container_initial.dart';
-import '../../widgets/components/image_login_widget.dart';
+import 'widgets/image_login/image_login_widget.dart';
 import '../../widgets/components/login_form.dart';
 import '../../widgets/components/signup_form.dart';
 
