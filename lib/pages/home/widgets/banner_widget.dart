@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'description_banner_widget.dart';
+import 'movies_banner_widget.dart';
 
 class BannerWidget extends StatelessWidget {
   const BannerWidget({
@@ -31,6 +32,11 @@ class BannerWidget extends StatelessWidget {
               width: 600,
               child: DescriptionBannerWidget(),
             ),
+          ),
+
+          Align(
+            alignment: Alignment.bottomRight,
+            child: MoviesBannerWidget(),
           ),
         ],
       ),
