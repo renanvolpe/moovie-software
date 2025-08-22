@@ -13,6 +13,7 @@ class ImageLoginController extends ChangeNotifier {
 
   late AnimationController textController;
   late Animation<double> textOffset;
+  late Animation<double> textFade;
 
   final TickerProvider vsync;
 
@@ -20,6 +21,11 @@ class ImageLoginController extends ChangeNotifier {
     textController = AnimationController(
       vsync: vsync,
       duration: const Duration(seconds: 5),
+    );
+
+    textFade = CurvedAnimation(
+      parent: textController,
+      curve: const Interval(0.0, 0.8, curve: Curves.easeIn),
     );
 
     textOffset =

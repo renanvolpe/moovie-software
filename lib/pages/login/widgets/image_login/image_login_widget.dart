@@ -52,9 +52,12 @@ class _ImageLoginWidgetState extends State<ImageLoginWidget> with TickerProvider
                 child: AnimatedBuilder(
                   animation: controller.textOffset,
                   builder: (context, child) {
-                    return Transform.translate(
-                      offset: Offset(controller.textOffset.value, 0),
-                      child: child,
+                    return FadeTransition(
+                      opacity: controller.textFade,
+                      child: Transform.translate(
+                        offset: Offset(controller.textOffset.value, 0),
+                        child: child,
+                      ),
                     );
                   },
                   child: Text(
