@@ -16,7 +16,7 @@ class ProfileController extends ChangeNotifier {
   bool get isSelected => _isSelected;
   int get indexSelected => _indexSelected;
 
-  List<ProfileModel> listProfiles = listProfilesMock;
+  List<ProfileModel> listProfiles = listProfilesMock.sublist(0,4);
 
   ProfileModel? profileSelected;
   
