@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../components/appbar/app_bar_widget.dart';
+import '../../components/fade_scroll.dart';
+import '../../components/fade_start.dart';
 import 'widgets/author_wiget.dart';
 import 'widgets/banner_widget.dart';
 import 'widgets/charactors_widget.dart';
@@ -19,26 +21,63 @@ class Home extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scrollController = useScrollController();
+
     return Scaffold(
       appBar: AppBarWidget(),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           spacing: 40,
           children: [
-            BannerWidget(),
-            TrendsWidget(),
-            MovieCategoryWidget(),
-            SizedBox(height: 80),
-            GlobeAwardsWidget(),
-            MovieCategoryWidget(),
-            PriceWidget(),
-            CollectionWiddget(),
-            ContinueWatchingWidget(),
-            CharactorsWidget(),
-            FamilyFriendlyWidget(),
-            ListStudiosWidget(),
-            AuthorWidget(),
+            FadeInOnStart(
+              child: BannerWidget(),
+            ),
+            FadeInOnStart(
+              child: TrendsWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: MovieCategoryWidget(),
+            ),
+            const SizedBox(height: 80),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: GlobeAwardsWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: MovieCategoryWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: PriceWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: CollectionWiddget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: ContinueWatchingWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: CharactorsWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: FamilyFriendlyWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: ListStudiosWidget(),
+            ),
+            FadeInOnScroll(
+              scrollController: scrollController,
+              child: AuthorWidget(),
+            ),
           ],
         ),
       ),
