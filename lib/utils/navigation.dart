@@ -42,7 +42,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
   return PageRouteBuilder(
     settings: settings,
-    pageBuilder: (context, __, ___) => SelectionArea(child: Scaffold(body: page(context))),
+    pageBuilder: (context, _, _) => SelectionArea(child: Scaffold(body: page(context))),
     transitionsBuilder: (_, animation, __, child) {
       return FadeTransition(opacity: animation, child: child);
     },

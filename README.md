@@ -125,9 +125,8 @@ mixin SlideFadeAnimationMixin<T extends StatefulWidget> on State<T>, TickerProvi
 
 - [x] Auth Screens (Login, Signup)
 - [x] Profile Management
-- [ ] Home Page
+- [X] Home Page
 - [ ] Movie Detail Page
-- [ ] Movie Playing Page
 
 ---
 
@@ -141,4 +140,5 @@ Feel free to fork, contribute, or give feedback!
 [![GitHub](https://img.shields.io/badge/GitHub-renanvolpe-181717?logo=github)](https://github.com/renanvolpe)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-renanvolpe-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/renanvolpe/)
 
-
+- [ ] Check if screen is ok to show and return in same page if increase
+- [ ] Make switch dark and ligth

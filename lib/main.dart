@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart' show PointerDeviceKind;
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         return Overlay(
           initialEntries: [
             OverlayEntry(
-              builder: (context) => SelectionArea(child: child!),
+              builder: (context) => SelectionArea(child: WebPageGuard(child: child!)),
             ),
           ],
         );
@@ -40,4 +41,36 @@ class AppCustomScrollBehavior extends MaterialScrollBehavior {
     PointerDeviceKind.mouse,
     PointerDeviceKind.trackpad,
   };
+}
+
+class WebPageGuard extends StatelessWidget {
+  final Widget child; // your real page
+
+  const WebPageGuard({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    if (!kIsWeb) {
+      return const Scaffold(
+        body: Center(
+          child: Text("❌ This app is only available on Web."),
+        ),
+      );
+    }
+
+    final width = MediaQuery.of(context).size.width;
+
+    if (width < 1024) {
+      return const Scaffold(
+        body: Center(
+          child: Text(
+            "⚠️ Screen size not supported.\nPlease open on a larger screen.",
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
+
+    return child;
+  }
 }
