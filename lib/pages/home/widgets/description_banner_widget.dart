@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
 import '../../../utils/enums.dart';
+import '../../../utils/navigation.dart';
 import '../../../widgets/buttons/btn_filled_widdget.dart';
 import '../../../widgets/buttons/btn_outlined_widdget.dart';
 
@@ -50,7 +51,7 @@ class DescriptionBannerWidget extends StatelessWidget {
               btnSize: BtnSize.m,
               icon: Icon(Icons.play_arrow_rounded),
               isRounded: true,
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, AppRoutes.detail),
             ),
             BtnOutlinedWiddget(
               text: "More Info",

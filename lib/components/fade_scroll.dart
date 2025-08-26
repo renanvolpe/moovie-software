@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:movie_software/utils/app_animation.dart';
 
 class FadeInOnScroll extends HookWidget {
   final Widget child;
@@ -13,9 +14,7 @@ class FadeInOnScroll extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final key = useMemoized(() => GlobalKey());
-    final controller = useAnimationController(
-      duration: const Duration(milliseconds: 800),
-    );
+    final controller = useAnimationController(duration: AppUtils.slow);
     final animation = CurvedAnimation(
       parent: controller,
       curve: Curves.easeIn,

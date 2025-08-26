@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/profiel_model.dart';
+import '../pages/detail/detail.dart';
 import '../pages/home/home.dart';
 import '../pages/login/login.dart';
 import '../pages/profile/profile.dart';
@@ -27,6 +28,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
       case AppRoutes.home:
         page = (_) => Home();
+        break;
+      
+       case AppRoutes.detail:
+        page = (_) => Detail();
         break;
 
       default:
@@ -55,5 +60,5 @@ class AppRoutes {
   static const String profile = '/profile';
   static const String profileDetail = '/profile/detail';
   static const String home = '/home';
-  static const String movie = '/movie';
+  static const String detail = '/detail';
 }

@@ -22,7 +22,6 @@ class Home extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final scrollController = useScrollController();
-
     return Scaffold(
       appBar: AppBarWidget(),
       extendBodyBehindAppBar: true,

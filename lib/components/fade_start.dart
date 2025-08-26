@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import '../utils/app_animation.dart';
+
 class FadeInOnStart extends HookWidget {
   final Widget child;
   const FadeInOnStart({super.key, required this.child});
@@ -8,7 +10,7 @@ class FadeInOnStart extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useAnimationController(
-      duration: const Duration(milliseconds: 800),
+      duration: AppUtils.slow,
     )..forward();
 
     final animation = CurvedAnimation(
