@@ -6,6 +6,8 @@ import 'package:movie_software/components/btn_underline_widget.dart';
 import 'package:movie_software/components/logo_widget.dart';
 import 'package:movie_software/styles/context_style.dart';
 import 'package:movie_software/utils/app_animation.dart';
+import 'package:movie_software/utils/navigation.dart';
+import 'package:movie_software/widgets/buttons/hover_btn_widget.dart';
 
 import 'app_bar_controller.dart';
 
@@ -43,7 +45,13 @@ class _AppBarWidgetState extends State<AppBarWidget> {
             ),
             leading: Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [LogoWidget(size: heigthAppBar)],
+              children: [
+                HoverTapWidget(
+                  onHover: (_) {},
+                  onTap: () => Navigator.pushNamed(context, AppRoutes.home),
+                  child: LogoWidget(size: heigthAppBar),
+                ),
+              ],
             ),
             centerTitle: true,
             title: Column(
