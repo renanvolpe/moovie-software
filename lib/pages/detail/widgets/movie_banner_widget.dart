@@ -6,7 +6,6 @@ import '../../../utils/enums.dart';
 import '../../../widgets/buttons/btn_filled_widdget.dart';
 import '../../../widgets/buttons/btn_outlined_widdget.dart';
 
-
 class MovieBannerWidget extends StatelessWidget {
   const MovieBannerWidget({
     super.key,
@@ -44,52 +43,72 @@ class MovieBannerWidget extends StatelessWidget {
               ),
             ),
           ),
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    context.colors.background,
+                  ],
+                  stops: [0.0, 1.0],
+                ),
+              ),
+            ),
+          ),
 
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
               margin: EdgeInsets.only(left: 50, bottom: 100),
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              width: 400,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('John Wick 4', style: context.styles.onPrimaryS(55)),
-                  SizedBox(height: 15),
-                  Text('2h 49m - 2023-USA', style: context.styles.onPrimary),
-                  Row(
-                    children: [for (int i = 0; i < 4; i++) Icon(Icons.star_rounded, color: context.colors.warning)],
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    children: [
-                      BtnIconWidget(
-                        icon: Icon(
-                          Icons.turned_in_not_rounded,
-                          size: 25,
+              child: IntrinsicWidth(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('John Wick 4', style: context.styles.onPrimaryS(55)),
+                    SizedBox(height: 15),
+
+                    Row(
+                      children: [
+                        Text('2h 49m - 2023-USA', style: context.styles.onPrimary),
+                        SizedBox(width: 35),
+                        for (int i = 0; i < 4; i++) Icon(Icons.star_rounded, color: context.colors.warning),
+                      ],
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        BtnIconWidget(
+                          icon: Icon(
+                            Icons.turned_in_not_rounded,
+                            size: 25,
+                          ),
+                          onTap: () {},
                         ),
-                        onTap: () {},
-                      ),
-                      SizedBox(width: 30),
-                      BtnIconWidget(
-                        icon: Icon(
-                          Icons.thumb_up_alt_outlined,
-                          size: 25,
+                        SizedBox(width: 30),
+                        BtnIconWidget(
+                          icon: Icon(
+                            Icons.thumb_up_alt_outlined,
+                            size: 25,
+                          ),
+                          onTap: () {},
                         ),
-                        onTap: () {},
-                      ),
-                      SizedBox(width: 10),
-                      BtnIconWidget(
-                        icon: Icon(
-                          Icons.thumb_down_alt_outlined,
-                          size: 25,
+                        SizedBox(width: 10),
+                        BtnIconWidget(
+                          icon: Icon(
+                            Icons.thumb_down_alt_outlined,
+                            size: 25,
+                          ),
+                          onTap: () {},
                         ),
-                        onTap: () {},
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
