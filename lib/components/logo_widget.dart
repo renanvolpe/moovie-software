@@ -10,8 +10,8 @@ class LogoWidget extends StatelessWidget {
     return SizedBox(
       child: Image.asset(
         isLigthTheme ? 'assets/logo-dark.png' : 'assets/logo-light.png',
-        width: size,
-        height: size,
+        width: 100,
+        height: 100,
       ),
     );
   }
