@@ -21,7 +21,7 @@ class MovieBannerWidget extends StatelessWidget {
             children: [
               Expanded(
                 child: Image.asset(
-                  'detail/banner2.png',
+                  'assets/banner2.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -121,7 +121,7 @@ class MovieBannerWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    'detail/jw-title.png',
+                    'assets/jw-title.png',
                     width: 500,
                   ),
                   SizedBox(height: 150),

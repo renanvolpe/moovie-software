@@ -24,7 +24,7 @@ class ListStudiosWidget extends StatelessWidget {
             spacing: 30,
             runSpacing: 25,
             children: [
-              for (int i = 1; i < 11; i++) StudioWidget(path: 'studios/dark/studio-$i.png'),
+              for (int i = 1; i < 11; i++) StudioWidget(path: 'assets/studio-$i.png'),
             ],
           ),
         ],

@@ -51,7 +51,7 @@ class _ImageResumeWidgetState extends State<ImageResumeWidget> with HoverableMix
             duration: AppUtils.fast,
             scale: isHovered ? 1.1 : 1.0,
             child: Image.asset(
-              'detail/resume(${widget.i}).png',
+              'assets/resume(${widget.i}).png',
               fit: BoxFit.cover,
             ),
           ),
