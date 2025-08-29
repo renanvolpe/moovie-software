@@ -60,7 +60,7 @@ class WebPageGuard extends StatelessWidget {
 
     final width = MediaQuery.of(context).size.width;
 
-    if (width < 1024) {
+    if (width < 1056) {
       return const Scaffold(
         body: Center(
           child: Text(
