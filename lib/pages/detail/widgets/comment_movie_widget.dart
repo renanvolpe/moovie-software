@@ -5,6 +5,7 @@ import 'package:movie_software/styles/context_style.dart';
 import '../../../components/btn_see_more_widget.dart';
 import '../../../components/comment_widget.dart';
 import '../../../models/mock/comments_movie.dart';
+import '../../../models/mock/profile_mock.dart';
 
 
 class CommentsMovieWidget extends StatelessWidget {
@@ -42,6 +43,7 @@ class CommentsMovieWidget extends StatelessWidget {
                       separatorBuilder: (context, index) => const SizedBox(width: 12),
                       itemBuilder: (context, index) {
                         return CommentWidget(
+                          path: listProfilesMock.reversed.toList()[index].imageAsset,
                           name: mockComments[index].name,
                           comment: mockComments[index].comment,
                           likes: mockComments[index].likes,

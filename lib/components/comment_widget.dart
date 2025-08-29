@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
@@ -13,11 +12,13 @@ class CommentWidget extends StatefulWidget {
     required this.comment,
     required this.likes,
     required this.dislikes,
+    required this.path,
   });
   final String name;
   final String comment;
   final int likes;
   final int dislikes;
+  final String path;
 
   @override
   State<CommentWidget> createState() => _CommentWidgetState();
@@ -43,7 +44,9 @@ class _CommentWidgetState extends State<CommentWidget> with HoverableMixin {
           children: [
             Row(
               children: [
-                const CircleAvatar(),
+                CircleAvatar(
+                  backgroundImage: AssetImage(widget.path),
+                ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: AnimatedDefaultTextStyle(
