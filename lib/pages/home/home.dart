@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../../components/appbar/app_bar_widget.dart';
 import '../../components/fade_scroll.dart';
 import '../../components/fade_start.dart';
-import 'widgets/author_wiget.dart';
+import '../../components/author_wiget.dart';
 import 'widgets/banner_widget.dart';
 import 'widgets/charactors_widget.dart';
 import 'widgets/collection_widget.dart';

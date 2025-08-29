@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class LoginController extends ChangeNotifier {
-  ValueNotifier<bool> isLogin = ValueNotifier(true);
+  bool _isLogin = true;
+  bool get isLogin => _isLogin;
 
-  changeIsLogin(bool isLogin) {
-    this.isLogin.value = isLogin;
+  void toggleMode(bool value) {
+    _isLogin = value;
     notifyListeners();
   }
 }

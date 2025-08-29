@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
+import 'package:movie_software/utils/app_animation.dart';
 
 import 'image_login_controller.dart';
 
@@ -35,7 +36,7 @@ class _ImageLoginWidgetState extends State<ImageLoginWidget> with TickerProvider
             Align(
               alignment: Alignment.center,
               child: AnimatedSwitcher(
-                duration: const Duration(milliseconds: 700),
+                duration: AppUtils.slow,
                 child: Image.asset(
                   controller.images[controller.currentIndex],
                   key: ValueKey(controller.images[controller.currentIndex]),
@@ -50,18 +51,42 @@ class _ImageLoginWidgetState extends State<ImageLoginWidget> with TickerProvider
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 80),
                 child: AnimatedBuilder(
-                  animation: controller.textOffset,
+                  animation: controller.titleOffset,
                   builder: (context, child) {
                     return FadeTransition(
-                      opacity: controller.textFade,
+                      opacity: controller.titleFade,
                       child: Transform.translate(
-                        offset: Offset(controller.textOffset.value, 0),
+                        offset: Offset(controller.titleOffset.value, 0),
                         child: child,
                       ),
                     );
                   },
                   child: Text(
-                    controller.texts[controller.currentIndex],
+                    controller.titles[controller.currentIndex],
+                    textAlign: TextAlign.center,
+                    style: context.styles.onPrimaryS(30),
+                  ),
+                ),
+              ),
+            ),
+
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: AnimatedBuilder(
+                  animation: controller.subtitleOffset,
+                  builder: (context, child) {
+                    return FadeTransition(
+                      opacity: controller.subtitleFade,
+                      child: Transform.translate(
+                        offset: Offset(controller.subtitleOffset.value, 0),
+                        child: child,
+                      ),
+                    );
+                  },
+                  child: Text(
+                    controller.subtitles[controller.currentIndex],
                     textAlign: TextAlign.center,
                     style: context.styles.onPrimaryS(22),
                   ),
