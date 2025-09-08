@@ -3,7 +3,7 @@ import 'package:movie_software/styles/context_style.dart';
 import 'package:url_launcher/url_launcher.dart' show launchUrl, canLaunchUrl, LaunchMode;
 
 import '../models/social_media_model.dart';
-import '../utils/app_animation.dart';
+import '../utils/app_utils.dart';
 import '../utils/hoverable_mixin.dart';
 import '../widgets/buttons/hover_btn_widget.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../components/btn_underline_widget.dart';
-import '../../../utils/app_animation.dart';
+import '../../../utils/app_utils.dart';
 import '../../../widgets/components/login_form.dart';
 import '../../../widgets/components/signup_form.dart';
 import '../login_controller.dart';

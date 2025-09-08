@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:movie_software/utils/app_animation.dart';
+import 'package:movie_software/utils/app_utils.dart';
 
 class FadeInOnScroll extends HookWidget {
   final Widget child;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../utils/app_animation.dart';
+import '../utils/app_utils.dart';
 
 class FadeInOnStart extends HookWidget {
   final Widget child;

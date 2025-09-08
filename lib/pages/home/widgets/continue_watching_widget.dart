@@ -6,7 +6,7 @@ import 'package:movie_software/widgets/buttons/hover_btn_widget.dart';
 
 import '../../../components/btn_see_more_widget.dart';
 import '../../../models/watch_moddel.dart';
-import '../../../utils/app_animation.dart';
+import '../../../utils/app_utils.dart';
 
 class ContinueWatchingWidget extends StatelessWidget {
   const ContinueWatchingWidget({

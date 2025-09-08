@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
-import 'package:movie_software/utils/app_animation.dart';
+import 'package:movie_software/utils/app_utils.dart';
 
 import '../../../models/profiel_model.dart';
 import '../../../utils/hoverable_mixin.dart';

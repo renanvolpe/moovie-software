@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppUtils {
+  static const double widthMobile = 700;
+
   // Animation durations
   static const Duration fast = Duration(milliseconds: 200);
   static const Duration normal = Duration(milliseconds: 300);

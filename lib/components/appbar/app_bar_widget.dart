@@ -5,7 +5,7 @@ import 'package:movie_software/components/btn_icon_widget.dart' show BtnIconWidg
 import 'package:movie_software/components/btn_underline_widget.dart';
 import 'package:movie_software/components/logo_widget.dart';
 import 'package:movie_software/styles/context_style.dart';
-import 'package:movie_software/utils/app_animation.dart';
+import 'package:movie_software/utils/app_utils.dart';
 import 'package:movie_software/utils/navigation.dart';
 import 'package:movie_software/widgets/buttons/hover_btn_widget.dart';
 

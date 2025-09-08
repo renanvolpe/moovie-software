@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../utils/app_animation.dart';
+import '../utils/app_utils.dart';
 import '../utils/hoverable_mixin.dart';
 import '../widgets/buttons/hover_btn_widget.dart';
 

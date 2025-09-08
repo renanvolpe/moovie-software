@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_software/utils/app_animation.dart';
+import 'package:movie_software/utils/app_utils.dart';
 
 mixin ScaleAnimationMixin<T extends StatefulWidget> on State<T>, TickerProviderStateMixin<T> {
   final Map<int, AnimationController> scaleControllers = {};

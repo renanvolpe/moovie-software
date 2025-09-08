@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
 import '../styles/color/app_color.dart';
-import '../utils/app_animation.dart';
+import '../utils/app_utils.dart';
 import '../utils/hoverable_mixin.dart';
 import '../widgets/buttons/hover_btn_widget.dart';
 

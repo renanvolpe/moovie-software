@@ -6,7 +6,7 @@ import '../pages/home/home.dart';
 import '../pages/login/login.dart';
 import '../pages/profile/profile.dart';
 import '../pages/profile_selected/profile_selected.dart';
-import 'app_animation.dart';
+import 'app_utils.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   final args = settings.arguments;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
-import '../../../utils/app_animation.dart';
+import '../../../utils/app_utils.dart';
 
 
 class GlobeAwardsWidget extends StatelessWidget {
