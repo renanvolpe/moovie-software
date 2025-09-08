@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
@@ -13,6 +12,23 @@ class ImagesMoovieWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
+    bool isSmall = width < AppUtils.widthMobile;
+    if (isSmall) {
+      return GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.all(8),
+        itemCount: 4,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
+          childAspectRatio: 1, // square
+        ),
+        itemBuilder: (_, i) => ImageResumeWidget(i: i + 1),
+      );
+    }
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
