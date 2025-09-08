@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
+import 'package:movie_software/utils/app_utils.dart';
 
 import '../../components/logo_widget.dart';
 import '../../widgets/components/container_initial.dart';
@@ -17,7 +18,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
-    if (width < 800) {
+    if (width < AppUtils.widthMobile) {
       return Scaffold(
         body: ContainerInitial(
           child: Center(

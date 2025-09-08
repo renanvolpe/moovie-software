@@ -71,6 +71,7 @@ class _ProfileSelectedState extends State<ProfileSelected> with TickerProviderSt
                           SizedBox(height: 20),
                           Text(
                             '${controller.profileModel.name}, your account has been successfully created ',
+                            textAlign: TextAlign.center,
                             style: context.styles.onSurfaceS(23),
                           ),
                           SizedBox(height: 20),
