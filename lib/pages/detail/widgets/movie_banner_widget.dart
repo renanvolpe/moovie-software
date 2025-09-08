@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:movie_software/styles/context_style.dart';
 
 import '../../../components/btn_icon_widget.dart';
+import '../../../utils/app_utils.dart';
 import '../../../utils/enums.dart';
 import '../../../widgets/buttons/btn_filled_widdget.dart';
 import '../../../widgets/buttons/btn_outlined_widdget.dart';
+import 'movie_banner_mobile_widget.dart';
 
 class MovieBannerWidget extends StatelessWidget {
   const MovieBannerWidget({
@@ -13,8 +15,15 @@ class MovieBannerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
+    var height = MediaQuery.sizeOf(context).height;
+    
+    if (width < AppUtils.widthMobile) {
+      return MovieBannerMobileWidget();
+    }
+
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height,
+      height: height,
       child: Stack(
         children: [
           Row(
