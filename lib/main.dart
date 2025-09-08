@@ -60,16 +60,16 @@ class WebPageGuard extends StatelessWidget {
 
     final width = MediaQuery.of(context).size.width;
 
-    if (width < 1056) {
-      return const Scaffold(
-        body: Center(
-          child: Text(
-            "⚠️ Screen size not supported.\nPlease open on a larger screen.",
-            textAlign: TextAlign.center,
-          ),
-        ),
-      );
-    }
+    // if (width < 1056) {
+    //   return const Scaffold(
+    //     body: Center(
+    //       child: Text(
+    //         "⚠️ Screen size not supported.\nPlease open on a larger screen.",
+    //         textAlign: TextAlign.center,
+    //       ),
+    //     ),
+    //   );
+    // }
 
     return child;
   }

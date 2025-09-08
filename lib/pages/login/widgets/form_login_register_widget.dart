@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:movie_software/styles/context_style.dart';
 
 import '../../../components/btn_underline_widget.dart';
-import '../../../components/logo_widget.dart';
 import '../../../utils/app_animation.dart';
 import '../../../widgets/components/login_form.dart';
 import '../../../widgets/components/signup_form.dart';
@@ -25,14 +23,6 @@ class FormLoginRegisterWidget extends HookWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            LogoWidget(),
-            Text("Films", style: context.styles.whiteS(55)),
-          ],
-        ),
-        Text("Welcome", style: context.styles.whiteS(22)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
