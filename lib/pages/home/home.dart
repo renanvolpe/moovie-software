@@ -41,7 +41,7 @@ class Home extends HookWidget {
               scrollController: scrollController,
               child: MovieCategoryWidget(),
             ),
-            const SizedBox(height: 80),
+            // const SizedBox(height: 80),
             FadeInOnScroll(
               scrollController: scrollController,
               child: GlobeAwardsWidget(),

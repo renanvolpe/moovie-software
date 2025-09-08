@@ -17,6 +17,7 @@ class BannerWidget extends StatelessWidget {
       return SizedBox(
         // height: height * 0.8,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               children: [
@@ -36,7 +37,13 @@ class BannerWidget extends StatelessWidget {
               child: DescriptionBannerWidget(),
             ),
             SizedBox(height: 35),
-            MoviesBannerWidget(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(width: 25),
+                Expanded(child: MoviesBannerWidget()),
+              ],
+            ),
           ],
         ),
       );

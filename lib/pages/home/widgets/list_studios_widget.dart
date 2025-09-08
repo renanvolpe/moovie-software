@@ -12,8 +12,10 @@ class ListStudiosWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
+
     return SizedBox(
-      width: MediaQuery.sizeOf(context).width * 0.5,
+      width: width < AppUtils.widthMobile ? width * 0.9 : width * 0.5,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

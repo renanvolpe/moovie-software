@@ -45,8 +45,10 @@ class ContinueWatchingWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     separatorBuilder: (context, index) => const SizedBox(width: 12),
                     itemBuilder: (context, index) {
+                      var itemWidth = width * 0.4;
+                      if (width < AppUtils.widthMobile) itemWidth = width * 0.8;
                       return WatchFilmWidget(
-                        width: width,
+                        width: itemWidth,
                         watchModel: mockWatchModel[index],
                       );
                     },
@@ -81,7 +83,7 @@ class _WatchFilmWidgetState extends State<WatchFilmWidget> with HoverableMixin {
     return HoverTapWidget(
       onHover: handleHover,
       child: Container(
-        width: widget.width * 0.4,
+        width: widget.width,
         decoration: BoxDecoration(
           borderRadius: AppUtils.borderRadiusM,
         ),
