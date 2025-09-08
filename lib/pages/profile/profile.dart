@@ -36,12 +36,11 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideF
         body: ContainerInitial(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: ListenableBuilder(
-                  listenable: controller,
-                  builder: (context, child) {
-                    return SingleChildScrollView(
+              ListenableBuilder(
+                listenable: controller,
+                builder: (context, child) {
+                  return SingleChildScrollView(
+                    child: Center(
                       child: Column(
                         children: [
                           SlideTransition(
@@ -118,9 +117,9 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin, SlideF
                           ),
                         ],
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
             ],
           ),
