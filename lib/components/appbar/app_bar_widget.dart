@@ -28,6 +28,10 @@ class _AppBarWidgetState extends State<AppBarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
+    if (width < AppUtils.widthMobile) {
+      return FloatingAppBarButton();
+    }
     return Container(
       margin: EdgeInsets.only(top: 15, left: 70, right: 70),
       child: ClipRRect(
@@ -153,6 +157,41 @@ class IconHomeWidget extends StatelessWidget {
         size: 27,
       ),
       onPressed: () {},
+    );
+  }
+}
+
+class FloatingAppBarButton extends StatelessWidget {
+  const FloatingAppBarButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Padding(
+          padding: AppUtils.paddingS,
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: context.colors.outline.withOpacity(0.1),
+              borderRadius: AppUtils.borderRadiusXXL,
+              border: Border.all(color: context.colors.primary, width: 0.3),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                HoverTapWidget(
+                  onHover: (_) {},
+                  onTap: () => Scaffold.of(context).openDrawer(),
+                  child: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:movie_software/styles/context_style.dart';
 
 import '../../../components/btn_see_more_widget.dart';
 import '../../../components/image_movie_widget.dart';
+import '../../../utils/item_width_caluclator.dart';
 
 class TrendsWidget extends HookWidget {
   const TrendsWidget({super.key});
@@ -59,7 +60,7 @@ class TrendsHorizontalList extends HookWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     const spacing = 20.0;
 
-    final itemWidth = (screenWidth - (spacing * (8 - 1))) / 6.5;
+    final itemWidth = itemWidthCalculator(screenWidth, spacing);
 
     return ListView.separated(
       controller: scrollController,
@@ -79,4 +80,6 @@ class TrendsHorizontalList extends HookWidget {
       },
     );
   }
+
+  
 }

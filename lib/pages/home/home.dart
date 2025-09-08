@@ -24,6 +24,7 @@ class Home extends HookWidget {
     final scrollController = useScrollController();
     return Scaffold(
       appBar: AppBarWidget(),
+      drawer: Drawer(),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         controller: scrollController,
